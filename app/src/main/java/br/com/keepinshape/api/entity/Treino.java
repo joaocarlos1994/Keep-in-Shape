@@ -8,12 +8,21 @@ import java.util.List;
  */
 public class Treino {
 
+    private long id;
     private String nome;
     private String tipo;
     private Date diaSemana;
     private List<Exercicio> listaExercicios;
     private double pontosTotal;
     private double pontosMaximo;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

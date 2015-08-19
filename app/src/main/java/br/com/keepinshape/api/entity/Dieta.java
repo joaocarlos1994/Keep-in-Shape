@@ -8,6 +8,15 @@ import java.util.List;
  */
 public class Dieta {
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private long id;
     private String nome;
     private Date diaSemana;
     private List<Alimento> listaAlimento;

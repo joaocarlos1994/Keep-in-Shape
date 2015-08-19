@@ -5,11 +5,20 @@ package br.com.keepinshape.api.entity;
  */
 public class Exercicio {
 
+    private long id;
     private String nome;
     private int tempo;
     private float peso;
     private int quantidade;
     private double pontuacao;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

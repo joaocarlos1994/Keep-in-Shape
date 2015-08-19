@@ -5,9 +5,18 @@ package br.com.keepinshape.api.entity;
  */
 public class Alimento {
 
+    private long id;
     private String nome;
     private double valorCalorico;
-    private double quantidae;
+    private double quantidade;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -26,10 +35,10 @@ public class Alimento {
     }
 
     public double getQuantidae() {
-        return quantidae;
+        return quantidade;
     }
 
     public void setQuantidae(double quantidae) {
-        this.quantidae = quantidae;
+        this.quantidade = quantidae;
     }
 }
