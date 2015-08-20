@@ -10,9 +10,9 @@ public class AlimentoFactory {
     public Alimento alimentoFactory(long id, String nome, double valorCalorico, double quantidade){
 
         Alimento alimento = new Alimento();
-        alimento.setId(id);
+        alimento.set_id(id);
         alimento.setNome(nome);
-        alimento.setValorCalorico(valorCalorico);
+        alimento.setCaloria(valorCalorico);
         alimento.setQuantidae(quantidade);
 
         return alimento;

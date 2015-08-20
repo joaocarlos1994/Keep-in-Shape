@@ -5,19 +5,29 @@ package br.com.keepinshape.api.entity;
  */
 public class Exercicio {
 
-    private long id;
+    private static final String COLUMN_TABLE = "EXERCICIO";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_NOME = "NOME";
+    private static final String COLUMN_TEMPO = "TEMPO";
+    private static final String COLUMN_PESO = "PESO";
+    private static final String COLUMN_QUANTIDADE = "QUANTIDADE";
+    private static final String COLUMN_PONTUACAO = "PONTUACAO";
+
+    private long _id;
     private String nome;
     private int tempo;
     private float peso;
     private int quantidade;
     private double pontuacao;
 
-    public long getId() {
-        return id;
+    public Exercicio(){}
+
+    public long get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(long _id) {
+        this._id = _id;
     }
 
     public String getNome() {

@@ -7,7 +7,16 @@ import java.util.List;
  */
 public class Pessoa {
 
-    private long id;
+    private static final String COLUMN_TABLE = "PESSOA";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_NOME = "NOME";
+    private static final String COLUMN_TREINOS = "TREINOS";
+    private static final String COLUMN_PESO = "PESO";
+    private static final String COLUMN_ALTURA = "ALTURA";
+    private static final String COLUMN_IDADE = "IDADE";
+    private static final String COLUMN_AGENDAS = "AGENDAS";
+
+    private long _id;
     private String nome;
     private List<Treino> listaExercicio;
     private double peso;
@@ -15,12 +24,14 @@ public class Pessoa {
     private int idade;
     private List<Agenda> listaAgenda;
 
-    public long getId() {
-        return id;
+    public Pessoa(){}
+
+    public long get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(long _id) {
+        this._id = _id;
     }
 
     public String getNome() {

@@ -8,7 +8,16 @@ import java.util.List;
  */
 public class Treino {
 
-    private long id;
+    private static final String TABLE = "Treino";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_NOME = "NOME";
+    private static final String COLUMN_TIPO = "TIPO";
+    private static final String COLUMN_SEMANA = "SEMANA";
+    private static final String COLUMN_EXERCICIOS = "EXERCICIOS";
+    private static final String COLUMN_PONTOS_TOTAL = "PONTOS_TOTAL";
+    private static final String COLUMN_PONTOS_MAXIMO = "PONTOS_MAXIMO";
+
+    private long _id;
     private String nome;
     private String tipo;
     private Date diaSemana;
@@ -16,12 +25,14 @@ public class Treino {
     private double pontosTotal;
     private double pontosMaximo;
 
-    public long getId() {
-        return id;
+    public Treino(){}
+
+    public long get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(long _id) {
+        this._id = _id;
     }
 
     public String getNome() {

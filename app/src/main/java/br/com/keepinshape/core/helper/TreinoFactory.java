@@ -15,7 +15,7 @@ public class TreinoFactory {
                                 List<Exercicio>listaExercicios, double pontosTotal, double pontosMaximo){
 
         Treino treino = new Treino();
-        treino.setId(id);
+        treino.set_id(id);
         treino.setNome(nome);
         treino.setTipo(tipo);
         treino.setDiaSemana(diaSemana);

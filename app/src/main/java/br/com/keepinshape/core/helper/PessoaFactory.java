@@ -15,7 +15,7 @@ public class PessoaFactory {
                                 double altura, int idade, List<Agenda> listaAgenda){
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setId(id);
+        pessoa.set_id(id);
         pessoa.setListaExercicio(listaExercicio);
         pessoa.setPeso(peso);
         pessoa.setAltura(altura);

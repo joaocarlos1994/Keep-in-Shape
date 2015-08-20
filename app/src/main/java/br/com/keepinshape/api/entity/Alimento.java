@@ -5,17 +5,25 @@ package br.com.keepinshape.api.entity;
  */
 public class Alimento {
 
-    private long id;
+    private static final String COLUMN_TABLE = "ALIMENTO";
+    private static final String COLUMN_ID = "_ID";
+    private static final String COLUMN_NOME = "NOME";
+    private static final String COLUMN_CALORIA = "CALORIA";
+    private static final String COLUMN_QUANTIDADE = "QUATIDADE";
+
+    private long _id;
     private String nome;
-    private double valorCalorico;
+    private double caloria;
     private double quantidade;
 
-    public long getId() {
-        return id;
+    public Alimento(){}
+
+    public long get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(long _id) {
+        this._id = _id;
     }
 
     public String getNome() {
@@ -26,12 +34,12 @@ public class Alimento {
         this.nome = nome;
     }
 
-    public double getValorCalorico() {
-        return valorCalorico;
+    public double getCaloria() {
+        return caloria;
     }
 
-    public void setValorCalorico(double valorCalorico) {
-        this.valorCalorico = valorCalorico;
+    public void setCaloria(double caloria) {
+        this.caloria = caloria;
     }
 
     public double getQuantidae() {

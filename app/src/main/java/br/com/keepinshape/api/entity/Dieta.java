@@ -8,18 +8,26 @@ import java.util.List;
  */
 public class Dieta {
 
-    public long getId() {
-        return id;
-    }
+    private static final String COLUMN_TABLE = "DIETA";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_NOME = "NOME";
+    private static final String COLUMN_DIA_SEMANA = "DIA_SEMANA";
+    private static final String COLUMN_ALIMENTOS = "ALIMENTOS";
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    private long id;
+    private long _id;
     private String nome;
     private Date diaSemana;
     private List<Alimento> listaAlimento;
+
+    public Dieta() {}
+
+    public long get_id() {
+        return _id;
+    }
+
+    public void set_id(long _id) {
+        this._id = _id;
+    }
 
     public String getNome() {
         return nome;

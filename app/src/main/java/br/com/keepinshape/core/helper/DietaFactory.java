@@ -13,7 +13,7 @@ public class DietaFactory {
 
     public Dieta dietaFactory(long id,  String nome, Date diaSemana, List<Alimento>listaAlimento){
         Dieta dieta = new Dieta();
-        dieta.setId(id);
+        dieta.set_id(id);
         dieta.setNome(nome);
         dieta.setDiaSemana(diaSemana);
         dieta.setListaAlimento(listaAlimento);
