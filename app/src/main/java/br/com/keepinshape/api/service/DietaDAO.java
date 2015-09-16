@@ -9,10 +9,10 @@ import br.com.keepinshape.api.entity.Dieta;
  */
 public interface DietaDAO {
 
-    public Dieta save(Dieta dieta);
-    public Dieta findById (int id);
-    public Dieta update (Dieta dieta);
-    public boolean remove (Dieta dieta);
-    public List<Dieta> findAll();
+    //public Dieta save(Dieta dieta);
+    //public Dieta findById (int id);
+    //public Dieta update (Dieta dieta);
+    //public boolean remove (Dieta dieta);
+    //public List<Dieta> findAll();
 
 }

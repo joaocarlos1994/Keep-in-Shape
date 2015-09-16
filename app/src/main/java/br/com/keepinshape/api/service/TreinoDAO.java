@@ -9,10 +9,10 @@ import br.com.keepinshape.api.entity.Treino;
  */
 public interface TreinoDAO {
 
-    public Treino save(Treino treino);
-    public Treino findById (int id);
-    public Treino update (Treino treino);
-    public boolean remove (Treino treino);
-    public List<Treino> findAll();
+    //public Treino save(Treino treino);
+    //public Treino findById (int id);
+    //public Treino update (Treino treino);
+    //public boolean remove (Treino treino);
+    //public List<Treino> findAll();
 
 }

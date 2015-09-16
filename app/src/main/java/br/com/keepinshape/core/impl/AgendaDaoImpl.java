@@ -9,6 +9,8 @@ import br.com.keepinshape.api.service.AgendaDAO;
  * Created by Joao on 18/08/2015.
  */
 public class AgendaDaoImpl implements AgendaDAO {
+
+    /*
     @Override
     public Agenda save(Agenda agenda) {
         return null;
@@ -33,4 +35,5 @@ public class AgendaDaoImpl implements AgendaDAO {
     public List<Agenda> findAll() {
         return null;
     }
+    */
 }

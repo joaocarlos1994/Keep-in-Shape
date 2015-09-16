@@ -26,7 +26,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int BD_VERSION = 1;
 
     public DatabaseHelper(Context ctx){
-        super(ctx, DatabaseHelper.BD_NAME, null, DatabaseHelper.BD_VERSION); //Atenção: Construtor apenas adicionado para parar de dar erro.
+        super(ctx, DatabaseHelper.BD_NAME, null, DatabaseHelper.BD_VERSION); //Atencao: Construtor apenas adicionado para parar de dar erro.
     }
 
 
@@ -50,16 +50,18 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource cs, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase sd, ConnectionSource cs, int oldVersion, int newVersion) {
 
         try {
 
-            TableUtils.dropTable(cs, Agenda.class, true);
-            TableUtils.dropTable(cs, Alimento.class, true);
-            TableUtils.dropTable(cs, Dieta.class, true);
-            TableUtils.dropTable(cs, Exercicio.class, true);
-            TableUtils.dropTable(cs, Pessoa.class, true);
-            TableUtils.dropTable(cs, Treino.class, true);
+            TableUtils.dropTable(cs, Agenda.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, Alimento.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, Dieta.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, Exercicio.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, Pessoa.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, Treino.class, true); //ultimo parametro serve para ignorar os erros.
+
+            onCreate(sd, cs); //Criando as tabelas novamente.
 
         } catch (SQLException ex){
 

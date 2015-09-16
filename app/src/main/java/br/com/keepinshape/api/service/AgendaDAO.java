@@ -9,10 +9,10 @@ import br.com.keepinshape.api.entity.Agenda;
  */
 public interface AgendaDAO {
 
-    public Agenda save(Agenda agenda);
-    public Agenda findById (int id);
-    public Agenda update (Agenda agenda);
-    public boolean remove (Agenda agenda);
-    public List<Agenda> findAll();
+    //public Agenda save(Agenda agenda);
+    //public Agenda findById (int id);
+    //public Agenda update (Agenda agenda);
+    //public boolean remove (Agenda agenda);
+    //public List<Agenda> findAll();
 
 }

@@ -9,11 +9,11 @@ import br.com.keepinshape.api.entity.Alimento;
  */
 public interface AlimentoDAO {
 
-    public Alimento save(Alimento alimento);
-    public Alimento findById (int id);
-    public Alimento update (Alimento alimento);
-    public boolean remove (Alimento alimento);
-    public List<Alimento> findAll();
+    //public Alimento save(Alimento alimento);
+    //public Alimento findById (int id);
+    //public Alimento update (Alimento alimento);
+    //public boolean remove (Alimento alimento);
+    //public List<Alimento> findAll();
 
 
 }

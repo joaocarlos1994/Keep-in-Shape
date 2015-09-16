@@ -7,10 +7,9 @@ import br.com.keepinshape.api.entity.Alimento;
  */
 public class AlimentoFactory {
 
-    public Alimento alimentoFactory(long id, String nome, double valorCalorico, double quantidade){
+    public Alimento alimentoFactory(String nome, double valorCalorico, double quantidade){
 
         Alimento alimento = new Alimento();
-        alimento.set_id(id);
         alimento.setNome(nome);
         alimento.setCaloria(valorCalorico);
         alimento.setQuantidae(quantidade);

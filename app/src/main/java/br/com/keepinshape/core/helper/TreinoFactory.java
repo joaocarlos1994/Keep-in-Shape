@@ -1,5 +1,6 @@
 package br.com.keepinshape.core.helper;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -11,11 +12,10 @@ import br.com.keepinshape.api.entity.Treino;
  */
 public class TreinoFactory {
 
-    public Treino treinoFactory(long id, String nome, String tipo, Date diaSemana,
-                                List<Exercicio>listaExercicios, double pontosTotal, double pontosMaximo){
+    public Treino treinoFactory(String nome, String tipo, Date diaSemana,
+                                Collection<Exercicio> listaExercicios, double pontosTotal, double pontosMaximo){
 
         Treino treino = new Treino();
-        treino.set_id(id);
         treino.setNome(nome);
         treino.setTipo(tipo);
         treino.setDiaSemana(diaSemana);

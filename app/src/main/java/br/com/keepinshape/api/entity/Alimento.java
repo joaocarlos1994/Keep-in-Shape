@@ -1,8 +1,13 @@
 package br.com.keepinshape.api.entity;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * Created by Joao on 17/08/2015.
  */
+
+@DatabaseTable(tableName = "Alimento")
 public class Alimento {
 
     private static final String COLUMN_TABLE = "ALIMENTO";
@@ -11,18 +16,22 @@ public class Alimento {
     private static final String COLUMN_CALORIA = "CALORIA";
     private static final String COLUMN_QUANTIDADE = "QUATIDADE";
 
-    private long _id;
+    @DatabaseField(generatedId = true)
+    private Integer _id;
+    @DatabaseField
     private String nome;
+    @DatabaseField
     private double caloria;
+    @DatabaseField
     private double quantidade;
 
     public Alimento(){}
 
-    public long get_id() {
+    public Integer get_id() {
         return _id;
     }
 
-    public void set_id(long _id) {
+    public void set_id(Integer _id) {
         this._id = _id;
     }
 

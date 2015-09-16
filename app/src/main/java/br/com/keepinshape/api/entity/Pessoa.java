@@ -1,10 +1,17 @@
 package br.com.keepinshape.api.entity;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by Joao on 17/08/2015.
  */
+
+@DatabaseTable(tableName = "Pessoa")
 public class Pessoa {
 
     private static final String COLUMN_TABLE = "PESSOA";
@@ -16,21 +23,34 @@ public class Pessoa {
     private static final String COLUMN_IDADE = "IDADE";
     private static final String COLUMN_AGENDAS = "AGENDAS";
 
-    private long _id;
+    @DatabaseField(generatedId = false)
+    private Integer _id;
+
+    @DatabaseField
     private String nome;
-    private List<Treino> listaExercicio;
+
+    @ForeignCollectionField
+    private Collection<Treino> listaExercicio;
+
+    @DatabaseField
     private double peso;
+
+    @DatabaseField
     private double altura;
+
+    @DatabaseField
     private int idade;
-    private List<Agenda> listaAgenda;
+
+    @ForeignCollectionField
+    private Collection<Agenda> listaAgenda;
 
     public Pessoa(){}
 
-    public long get_id() {
+    public Integer get_id() {
         return _id;
     }
 
-    public void set_id(long _id) {
+    public void set_id(Integer _id) {
         this._id = _id;
     }
 
@@ -42,11 +62,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public List<Agenda> getListaAgenda() {
+    public Collection<Agenda> getListaAgenda() {
         return listaAgenda;
     }
 
-    public void setListaAgenda(List<Agenda> listaAgenda) {
+    public void setListaAgenda(Collection<Agenda> listaAgenda) {
         this.listaAgenda = listaAgenda;
     }
 
@@ -74,11 +94,11 @@ public class Pessoa {
         this.peso = peso;
     }
 
-    public List<Treino> getListaExercicio() {
+    public Collection<Treino> getListaExercicio() {
         return listaExercicio;
     }
 
-    public void setListaExercicio(List<Treino> listaExercicio) {
+    public void setListaExercicio(Collection<Treino> listaExercicio) {
         this.listaExercicio = listaExercicio;
     }
 }

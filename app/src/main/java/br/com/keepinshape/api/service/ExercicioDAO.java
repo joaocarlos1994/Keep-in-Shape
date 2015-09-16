@@ -9,10 +9,10 @@ import br.com.keepinshape.api.entity.Exercicio;
  */
 public interface ExercicioDAO {
 
-    public Exercicio save(Exercicio exercicio);
-    public Exercicio findById (int id);
-    public Exercicio update (Exercicio exercicio);
-    public boolean remove (Exercicio exercicio);
-    public List<Exercicio> findAll();
+    //public Exercicio save(Exercicio exercicio);
+    //public Exercicio findById (int id);
+    //public Exercicio update (Exercicio exercicio);
+    //public boolean remove (Exercicio exercicio);
+    //public List<Exercicio> findAll();
 
 }
