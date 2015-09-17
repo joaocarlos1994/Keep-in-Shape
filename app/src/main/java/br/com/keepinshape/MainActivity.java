@@ -15,8 +15,10 @@ import br.com.keepinshape.R;
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.ExercicioFactory;
+import br.com.keepinshape.core.helper.PessoaFactory;
 import br.com.keepinshape.core.helper.TreinoFactory;
 import br.com.keepinshape.core.helper.db.DatabaseHelper;
+import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 import br.com.keepinshape.core.impl.TreinoDaoImpl;
 
 public class MainActivity extends ActionBarActivity {
@@ -34,11 +36,15 @@ public class MainActivity extends ActionBarActivity {
         databaseHelper = new DatabaseHelper(MainActivity.this);
 
         try {
-
+            ExercicioDaoImpl exerciciosImpl = new ExercicioDaoImpl(databaseHelper.getConnectionSource());
             TreinoDaoImpl treinoImpl = new TreinoDaoImpl(databaseHelper.getConnectionSource());
             Exercicio exercicio =  exercicioFactory.exercicioFactory("Supino", 30, 50, 3, 10);
+
+            exerciciosImpl.create(exercicio);
+
             listaExercicio.add(exercicio);
             Treino treino = treinoFactory.treinoFactory("Treino A", "Costas", new Date(),listaExercicio, 100, 100);
+
             treinoImpl.create(treino);
 
 

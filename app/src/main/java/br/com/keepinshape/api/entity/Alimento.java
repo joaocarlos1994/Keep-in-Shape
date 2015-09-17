@@ -24,6 +24,8 @@ public class Alimento {
     private double caloria;
     @DatabaseField
     private double quantidade;
+    @DatabaseField(foreign = true)
+    private Dieta dieta;
 
     public Alimento(){}
 
@@ -57,5 +59,13 @@ public class Alimento {
 
     public void setQuantidae(double quantidae) {
         this.quantidade = quantidae;
+    }
+
+    public Dieta getDieta() {
+        return dieta;
+    }
+
+    public void setDieta(Dieta dieta) {
+        this.dieta = dieta;
     }
 }

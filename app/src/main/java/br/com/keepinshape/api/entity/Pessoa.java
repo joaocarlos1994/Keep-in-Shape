@@ -5,7 +5,6 @@ import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by Joao on 17/08/2015.
@@ -23,14 +22,14 @@ public class Pessoa {
     private static final String COLUMN_IDADE = "IDADE";
     private static final String COLUMN_AGENDAS = "AGENDAS";
 
-    @DatabaseField(generatedId = false)
+    @DatabaseField(generatedId = true)
     private Integer _id;
 
     @DatabaseField
     private String nome;
 
     @ForeignCollectionField
-    private Collection<Treino> listaExercicio;
+    private Collection<Treino> listaTreino;
 
     @DatabaseField
     private double peso;
@@ -94,11 +93,11 @@ public class Pessoa {
         this.peso = peso;
     }
 
-    public Collection<Treino> getListaExercicio() {
-        return listaExercicio;
+    public Collection<Treino> getListaTreino() {
+        return listaTreino;
     }
 
-    public void setListaExercicio(Collection<Treino> listaExercicio) {
-        this.listaExercicio = listaExercicio;
+    public void setListaTreino(Collection<Treino> listaTreino) {
+        this.listaTreino = listaTreino;
     }
 }

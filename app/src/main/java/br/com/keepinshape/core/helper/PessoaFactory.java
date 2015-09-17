@@ -1,7 +1,6 @@
 package br.com.keepinshape.core.helper;
 
 import java.util.Collection;
-import java.util.List;
 
 import br.com.keepinshape.api.entity.Agenda;
 import br.com.keepinshape.api.entity.Pessoa;
@@ -16,7 +15,7 @@ public class PessoaFactory {
                                 double altura, int idade, Collection<Agenda> listaAgenda){
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setListaExercicio(listaExercicio);
+        pessoa.setListaTreino(listaExercicio);
         pessoa.setPeso(peso);
         pessoa.setAltura(altura);
         pessoa.setIdade(idade);

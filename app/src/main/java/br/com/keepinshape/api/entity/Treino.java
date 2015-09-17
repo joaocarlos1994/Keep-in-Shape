@@ -40,6 +40,8 @@ public class Treino {
     private double pontosTotal;
     @DatabaseField
     private double pontosMaximo;
+    @DatabaseField(foreign = true)
+    private Pessoa pessoa;
 
     public Treino(){}
 
@@ -97,5 +99,13 @@ public class Treino {
 
     public void setPontosMaximo(double pontosMaximo) {
         this.pontosMaximo = pontosMaximo;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

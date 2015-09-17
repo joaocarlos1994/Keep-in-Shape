@@ -3,6 +3,7 @@ package br.com.keepinshape.core.helper.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
@@ -23,7 +24,7 @@ import br.com.keepinshape.api.entity.Treino;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String BD_NAME = "KEEP_IN_SHAPE";
-    private static final int BD_VERSION = 1;
+    private static final int BD_VERSION = 2;
 
     public DatabaseHelper(Context ctx){
         super(ctx, DatabaseHelper.BD_NAME, null, DatabaseHelper.BD_VERSION); //Atencao: Construtor apenas adicionado para parar de dar erro.
@@ -44,7 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException ex){
 
-            ex.printStackTrace();
+            Log.d("DatabaseHelper Erro: ", ex.toString());
         }
 
     }

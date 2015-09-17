@@ -1,5 +1,6 @@
 package br.com.keepinshape.api.entity;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -25,7 +26,7 @@ public class Dieta {
 
     @DatabaseField
     private String nome;
-    @DatabaseField
+    @DatabaseField(dataType = DataType.DATE_STRING)
     private Date diaSemana;
     @ForeignCollectionField
     private Collection<Alimento> listaAlimento;
