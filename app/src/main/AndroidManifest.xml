@@ -16,6 +16,54 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.exercicio.ExercicioRegister"
+            android:label="@string/title_activity_exercicio_register" >
+        </activity>
+        <activity
+            android:name=".activity.exercicio.ExercicioList"
+            android:label="@string/title_activity_exercicio_list" >
+        </activity>
+        <activity
+            android:name=".activity.treino.TreinoRegister"
+            android:label="@string/title_activity_treino_register" >
+        </activity>
+        <activity
+            android:name=".activity.treino.TreinoList"
+            android:label="@string/title_activity_treino_list" >
+        </activity>
+        <activity
+            android:name=".activity.pessoa.PessoaRegister"
+            android:label="@string/title_activity_pessoa_register" >
+        </activity>
+        <activity
+            android:name=".activity.pessoa.PessoaList"
+            android:label="@string/title_activity_pessoa_list" >
+        </activity>
+        <activity
+            android:name=".activity.dieta.DietaRegister"
+            android:label="@string/title_activity_dieta_register" >
+        </activity>
+        <activity
+            android:name=".activity.dieta.DietaList"
+            android:label="@string/title_activity_dieta_list" >
+        </activity>
+        <activity
+            android:name=".activity.alimento.AlimentoRegister"
+            android:label="@string/title_activity_alimento_register" >
+        </activity>
+        <activity
+            android:name=".activity.alimento.AlimentoList"
+            android:label="@string/title_activity_alimento_list" >
+        </activity>
+        <activity
+            android:name=".activity.agenda.AgendaRegister"
+            android:label="@string/title_activity_agenda_register" >
+        </activity>
+        <activity
+            android:name=".activity.agenda.AgendaList"
+            android:label="@string/title_activity_agenda_list" >
+        </activity>
     </application>
 
 </manifest>

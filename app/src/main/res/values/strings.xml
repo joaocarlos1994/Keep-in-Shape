@@ -4,4 +4,25 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_exercicio_register">ExercicioRegister</string>
+    <string name="title_activity_exercicio_list">ExercicioList</string>
+    <string name="title_activity_treino_register">TreinoRegister</string>
+    <string name="title_activity_treino_list">TreinoList</string>
+    <string name="title_activity_pessoa_register">PessoaRegister</string>
+    <string name="title_activity_pessoa_list">PessoaList</string>
+    <string name="title_activity_dieta_register">DietaRegister</string>
+    <string name="title_activity_dieta_list">DietaList</string>
+    <string name="title_activity_alimento_register">AlimentoRegister</string>
+    <string name="title_activity_alimento_list">AlimentoList</string>
+    <string name="title_activity_agenda_register">AgendaRegister</string>
+    <string name="title_activity_agenda_list">AgendaList</string>
+
+    <string name="registro_treino">Registro Exercício</string>
+    <string name="nome_exercicio">Nome Exercício:</string>
+    <string name="exercicio_tempo">Tempo:</string>
+    <string name="exercicio_peso">Peso:</string>
+    <string name="exercicio_quantidade">Quantidade:</string>
+    <string name="exercicio_pontuacao">Pontuação:</string>
+
+
 </resources>
