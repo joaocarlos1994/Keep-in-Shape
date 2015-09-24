@@ -1,61 +1,34 @@
 package br.com.keepinshape;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import br.com.keepinshape.activity.exercicio.ExercicioRegister;
+import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 
-import br.com.keepinshape.R;
-import br.com.keepinshape.api.entity.Exercicio;
-import br.com.keepinshape.api.entity.Treino;
-import br.com.keepinshape.core.helper.ExercicioFactory;
-import br.com.keepinshape.core.helper.PessoaFactory;
-import br.com.keepinshape.core.helper.TreinoFactory;
-import br.com.keepinshape.core.helper.db.DatabaseHelper;
-import br.com.keepinshape.core.impl.ExercicioDaoImpl;
-import br.com.keepinshape.core.impl.TreinoDaoImpl;
 
 public class MainActivity extends ActionBarActivity {
-
-    private DatabaseHelper databaseHelper;
-    private TreinoFactory treinoFactory = new TreinoFactory();
-    private ExercicioFactory exercicioFactory = new ExercicioFactory();
-    private Collection<Exercicio> listaExercicio = new ArrayList<Exercicio>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
-        databaseHelper = new DatabaseHelper(MainActivity.this);
-
-        try {
-            ExercicioDaoImpl exerciciosImpl = new ExercicioDaoImpl(databaseHelper.getConnectionSource());
-            TreinoDaoImpl treinoImpl = new TreinoDaoImpl(databaseHelper.getConnectionSource());
-            Exercicio exercicio =  exercicioFactory.exercicioFactory("Supino", 30, 50, 3, 10);
-
-            exerciciosImpl.create(exercicio);
-
-            listaExercicio.add(exercicio);
-            Treino treino = treinoFactory.treinoFactory("Treino A", "Costas", new Date(),listaExercicio, 100, 100);
-
-            treinoImpl.create(treino);
-
-
-            Log.d("Usuario cadastrado:", treinoImpl.queryForId(1).getNome());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
 
     }
+
+    public void startAcitivity(View view){
+
+        String a;
+        startActivity(new Intent(this, ExercicioRegister.class));
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

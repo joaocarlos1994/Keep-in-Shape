@@ -23,6 +23,7 @@
     <string name="exercicio_peso">Peso:</string>
     <string name="exercicio_quantidade">Quantidade:</string>
     <string name="exercicio_pontuacao">Pontuação:</string>
+    <string name="btn_salvar">Salvar</string>
 
 
 </resources>
