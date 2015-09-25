@@ -1,18 +1,42 @@
 package br.com.keepinshape.activity.exercicio;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.keepinshape.R;
+import br.com.keepinshape.api.entity.Exercicio;
+import br.com.keepinshape.core.helper.DatabaseHelperFactory;
+import br.com.keepinshape.core.helper.ExercicioFactory;
+import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 
-public class ExercicioList extends ActionBarActivity {
+public class ExercicioList extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicio_list);
+
+        List<Exercicio> exercicios = null;
+
+        try {
+            ExercicioDaoImpl exercicioDaoIml = new ExercicioDaoImpl(DatabaseHelperFactory.getIntanceConnection(ExercicioList.this).getConnectionSource());
+            exercicios = exercicioDaoIml.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ListView listView = (ListView) findViewById(R.id.listViewExercicio);
+        listView.setAdapter(new ExercicioAdapter(this, exercicios));
+
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.com.keepinshape.activity.exercicio.ExercicioList;
 import br.com.keepinshape.activity.exercicio.ExercicioRegister;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 
@@ -26,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
     public void startAcitivity(View view){
 
         String a;
-        startActivity(new Intent(this, ExercicioRegister.class));
+        startActivity(new Intent(this, ExercicioList.class));
     }
 
 
