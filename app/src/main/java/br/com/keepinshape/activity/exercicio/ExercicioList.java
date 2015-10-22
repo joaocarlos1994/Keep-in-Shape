@@ -28,7 +28,7 @@ public class ExercicioList extends Activity {
         List<Exercicio> exercicios = null;
 
         try {
-            ExercicioDaoImpl exercicioDaoIml = new ExercicioDaoImpl(DatabaseHelperFactory.getIntanceConnection(ExercicioList.this).getConnectionSource());
+            ExercicioDaoImpl exercicioDaoIml = ExercicioFactory.getInstanceExercicioDaoImpl(this);
             exercicios = exercicioDaoIml.queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
