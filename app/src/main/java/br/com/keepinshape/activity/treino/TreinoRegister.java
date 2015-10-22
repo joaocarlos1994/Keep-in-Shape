@@ -4,12 +4,14 @@ import android.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -17,20 +19,30 @@ import android.widget.Spinner;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import br.com.keepinshape.R;
 import br.com.keepinshape.activity.exercicio.ExercicioAdapter;
 import br.com.keepinshape.api.entity.Exercicio;
+import br.com.keepinshape.api.entity.Treino;
+import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
+import br.com.keepinshape.core.helper.TreinoFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
+import br.com.keepinshape.core.impl.TreinoDaoImpl;
+import br.com.keepinshape.core.service.Validator;
 
 public class TreinoRegister extends ActionBarActivity {
 
     private List<Exercicio> exercicios;
+    private List<Exercicio> exerciciosSelecionados = new ArrayList<Exercicio>();
     private ExercicioAdapter exercicioAdapter;
     private Spinner sp;
-    private List<Exercicio> exerciciosSelecionados = new ArrayList<Exercicio>();
+    private EditText edtTreino, edtTipoTreino, edtSemana, edtPtnTotal, edtPtnMaximo;
+    private TreinoFactory treinoFactory;
+    private TreinoDaoImpl treinoDaoImpl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +105,38 @@ public class TreinoRegister extends ActionBarActivity {
 
             }
         });
+
+    }
+
+    public void handlerSalvarTreino(View view) {
+
+        int vetor [] = {R.id.editTextNomeTreino, R.id.editTreinotTipo, R.id.editTextDiaSemana,
+                        R.id.editTextPontosTotal, R.id.editTextPontosMaximo};
+
+        if(Validator.validador(view, vetor) == true){
+
+            edtTreino = (EditText) findViewById(vetor[0]);
+            edtTipoTreino = (EditText) findViewById(vetor[1]);
+            edtSemana = (EditText) findViewById(vetor[2]);
+            edtPtnTotal = (EditText) findViewById(vetor[3]);
+            edtPtnMaximo = (EditText) findViewById(vetor[4]);
+
+            Treino treino = treinoFactory.treinoFactory(edtTreino.getText().toString(), edtTipoTreino.getText().toString(), new Date(),
+                                        exerciciosSelecionados, Double.parseDouble(edtPtnTotal.getText().toString()),
+                                        Double.parseDouble(edtPtnMaximo.getText().toString()));
+
+
+            try {
+                treinoDaoImpl = new TreinoDaoImpl(DatabaseHelperFactory.getIntanceConnection(TreinoRegister.this).getConnectionSource());
+                treinoDaoImpl.create(treino);
+            } catch (SQLException e) {
+
+                Log.d("Erro: , Tipo: ", "Falha ao adicionar Treino");
+                e.printStackTrace();
+            }
+
+
+        }
 
     }
 

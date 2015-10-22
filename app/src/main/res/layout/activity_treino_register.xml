@@ -47,7 +47,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextTipo"
+            android:id="@+id/editTreinotTipo"
             android:layout_below="@+id/textViewTpo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:text="Semana:"
             android:id="@+id/textViewDIaSemana"
-            android:layout_below="@+id/editTextTipo"
+            android:layout_below="@+id/editTreinotTipo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -143,11 +143,12 @@
 
         <GridView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/gridViewExercicioCadastrados"
             android:layout_below="@+id/textViewExercicioCadastrados"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/btnAddTreino" />
 
         <Button
             android:layout_width="wrap_content"
@@ -159,5 +160,15 @@
             android:layout_alignParentEnd="true"
             android:onClick="handlerTreinoAddExercicio" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:id="@+id/btnAddTreino"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="handlerSalvarTreino" />
+
     </RelativeLayout>
+
 </RelativeLayout>
