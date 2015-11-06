@@ -24,6 +24,15 @@
     <string name="exercicio_quantidade">Quantidade:</string>
     <string name="exercicio_pontuacao">Pontuação:</string>
     <string name="btn_salvar">Salvar</string>
+    <string name="nome_treino">Treino:</string>
+    <string name="tipo_treino">Tipo de Treino:</string>
+    <string name="dia_semana">Semana:</string>
+    <string name="pontos_total">Pontos total:</string>
+    <string name="pontos_maximo">Pontos máximo:</string>
+    <string name="lista_exercicio">Lista de exercícios:</string>
+    <string name="exercicio_cadastrados">Exercício cadastrado:</string>
+    <string name="btn_add_treino">Adicionar</string>
+    <string name="btn_add_Treino">Salvar</string>
 
 
 </resources>

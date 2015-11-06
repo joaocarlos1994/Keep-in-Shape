@@ -21,7 +21,7 @@ public class Validator {
             Editable text = edText.getText();
             if (text != null) {
                 String strText = text.toString();
-                if (!TextUtils.isEmpty(strText)) {
+                if (strText.length() > 0) {
                     return true;
                 }
             }
@@ -47,7 +47,7 @@ public class Validator {
                 validacao = false;
             }
 
-            textValidator.setText("");
+            //textValidator.setText("");
         }
 
         return validacao;

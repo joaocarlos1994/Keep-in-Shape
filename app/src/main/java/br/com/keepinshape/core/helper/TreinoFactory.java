@@ -12,7 +12,7 @@ import br.com.keepinshape.api.entity.Treino;
  */
 public class TreinoFactory {
 
-    public Treino treinoFactory(String nome, String tipo, Date diaSemana,
+    public Treino treinoFactory(String nome, String tipo, String diaSemana,
                                 Collection<Exercicio> listaExercicios, double pontosTotal, double pontosMaximo){
 
         Treino treino = new Treino();

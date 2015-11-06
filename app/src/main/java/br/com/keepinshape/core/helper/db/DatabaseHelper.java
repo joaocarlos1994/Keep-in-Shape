@@ -24,7 +24,7 @@ import br.com.keepinshape.api.entity.Treino;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String BD_NAME = "KEEP_IN_SHAPE";
-    private static final int BD_VERSION = 1;
+    private static final int BD_VERSION = 2;
 
     public DatabaseHelper(Context ctx){
         super(ctx, DatabaseHelper.BD_NAME, null, DatabaseHelper.BD_VERSION); //Atencao: Construtor apenas adicionado para parar de dar erro.

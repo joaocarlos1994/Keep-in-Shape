@@ -32,8 +32,8 @@ public class Treino {
     private String nome;
     @DatabaseField
     private String tipo;
-    @DatabaseField(dataType = DataType.DATE_STRING)
-    private Date diaSemana;
+    @DatabaseField
+    private String diaSemana;
     @ForeignCollectionField
     private Collection<Exercicio> listaExercicios;
     @DatabaseField
@@ -69,11 +69,11 @@ public class Treino {
         this.tipo = tipo;
     }
 
-    public Date getDiaSemana() {
+    public String getDiaSemana() {
         return diaSemana;
     }
 
-    public void setDiaSemana(Date diaSemana) {
+    public void setDiaSemana(String diaSemana) {
         this.diaSemana = diaSemana;
     }
 

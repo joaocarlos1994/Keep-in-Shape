@@ -1,6 +1,7 @@
 package br.com.keepinshape.activity.exercicio;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import java.sql.SQLException;
 
@@ -24,6 +26,7 @@ public class ExercicioRegister extends Activity {
     private EditText nome, tempo, peso, quantidade, pontuacao;
     private ExercicioFactory exercicioFactory;
     private ExercicioDaoImpl exercicioDaoImpl;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,12 @@ public class ExercicioRegister extends Activity {
 
     public void handlerSaveExercicio(View view){
 
-        int vetor [] = {R.id.txtNomeExercicio, R.id.txtNomeExercicio, R.id.txtNomeExercicio, R.id.txtNomeExercicio, R.id.txtNomeExercicio};
+        layout = (RelativeLayout) findViewById(R.id.relative_layout_register_exercicio);
 
-        if (Validator.validador(view, vetor) == true){
+        int vetor [] = {R.id.txtNomeExercicio, R.id.txtTempoExercicio, R.id.txtExercicioPeso, R.id.txtExercicioQuantidade,
+                        R.id.txtExercicioPontuacao};
+
+        if (Validator.validador(layout, vetor) == true){
 
 
             nome = (EditText) findViewById(vetor[0]);
@@ -52,6 +58,10 @@ public class ExercicioRegister extends Activity {
             try {
                 exercicioDaoImpl = new ExercicioDaoImpl(DatabaseHelperFactory.getIntanceConnection(ExercicioRegister.this).getConnectionSource());
                 exercicioDaoImpl.create(exercicio);
+
+                startActivity(new Intent(this, ExercicioList.class));
+
+
             } catch (SQLException e) {
 
                 Log.d("Erro: , Tipo: ", "Falha ao adicionar Exercicio");

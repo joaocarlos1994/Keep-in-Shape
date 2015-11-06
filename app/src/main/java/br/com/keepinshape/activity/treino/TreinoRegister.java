@@ -1,6 +1,7 @@
 package br.com.keepinshape.activity.treino;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -35,19 +36,22 @@ import br.com.keepinshape.core.service.Validator;
 
 public class TreinoRegister extends ActionBarActivity {
 
+    private EditText edtTreino, edtTipoTreino, edtSemana, edtPtnTotal, edtPtnMaximo;
     private List<Exercicio> exercicios;
     private List<Exercicio> exerciciosSelecionados = new ArrayList<Exercicio>();
     private ExercicioAdapter exercicioAdapter;
     private Spinner sp;
-    private EditText edtTreino, edtTipoTreino, edtSemana, edtPtnTotal, edtPtnMaximo;
     private TreinoFactory treinoFactory;
     private TreinoDaoImpl treinoDaoImpl;
+    private RelativeLayout layout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treino_register);
+
+        treinoFactory = new TreinoFactory();
 
         loadAllExerciseSpinner();
 
@@ -110,10 +114,12 @@ public class TreinoRegister extends ActionBarActivity {
 
     public void handlerSalvarTreino(View view) {
 
+        layout = (RelativeLayout) findViewById(R.id.relative_layout_register_treino);
+
         int vetor [] = {R.id.editTextNomeTreino, R.id.editTreinotTipo, R.id.editTextDiaSemana,
                         R.id.editTextPontosTotal, R.id.editTextPontosMaximo};
 
-        if(Validator.validador(view, vetor) == true){
+        if(Validator.validador(layout, vetor) == true){
 
             edtTreino = (EditText) findViewById(vetor[0]);
             edtTipoTreino = (EditText) findViewById(vetor[1]);
@@ -121,7 +127,7 @@ public class TreinoRegister extends ActionBarActivity {
             edtPtnTotal = (EditText) findViewById(vetor[3]);
             edtPtnMaximo = (EditText) findViewById(vetor[4]);
 
-            Treino treino = treinoFactory.treinoFactory(edtTreino.getText().toString(), edtTipoTreino.getText().toString(), new Date(),
+            Treino treino = treinoFactory.treinoFactory(edtTreino.getText().toString(), edtTipoTreino.getText().toString(), "Segunda",
                                         exerciciosSelecionados, Double.parseDouble(edtPtnTotal.getText().toString()),
                                         Double.parseDouble(edtPtnMaximo.getText().toString()));
 
@@ -129,6 +135,9 @@ public class TreinoRegister extends ActionBarActivity {
             try {
                 treinoDaoImpl = new TreinoDaoImpl(DatabaseHelperFactory.getIntanceConnection(TreinoRegister.this).getConnectionSource());
                 treinoDaoImpl.create(treino);
+
+                startActivity(new Intent(this, TreinoList.class));
+
             } catch (SQLException e) {
 
                 Log.d("Erro: , Tipo: ", "Falha ao adicionar Treino");

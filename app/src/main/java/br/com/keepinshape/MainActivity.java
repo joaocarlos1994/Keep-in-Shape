@@ -11,6 +11,7 @@ import android.view.View;
 import br.com.keepinshape.activity.exercicio.ExercicioList;
 import br.com.keepinshape.activity.exercicio.ExercicioRegister;
 import br.com.keepinshape.activity.treino.TreinoRegister;
+import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 
 
@@ -30,6 +31,8 @@ public class MainActivity extends ActionBarActivity {
         String a;
         startActivity(new Intent(this, TreinoRegister.class));
     }
+
+    //IMC, relação cintura quadril, dobras cuntania
 
 
     @Override
