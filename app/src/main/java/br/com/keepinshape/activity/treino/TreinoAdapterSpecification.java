@@ -5,30 +5,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import br.com.keepinshape.R;
+import br.com.keepinshape.activity.exercicio.ExercicioAdapter;
+import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.service.ConvertToTypes;
 
 /**
- * Created by root on 25/09/15.
+ * Created by root on 07/11/15.
  */
-public class TreinoAdapter extends BaseAdapter {
+public class TreinoAdapterSpecification extends BaseAdapter {
 
     private Context context;
     private List<Treino> treinos;
+    private View view;
 
-    public TreinoAdapter (Context context, List<Treino> treinos){
+    public TreinoAdapterSpecification(Context context, List<Treino> treino, View view){
         this.context = context;
-        this.treinos = treinos;
+        this.treinos = treino;
+        this.view = view;
     }
+
 
     @Override
     public int getCount() {
-        return treinos.size();
+        return 0;
     }
 
     @Override
@@ -38,7 +44,7 @@ public class TreinoAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -46,10 +52,7 @@ public class TreinoAdapter extends BaseAdapter {
 
         Treino treino = treinos.get(position);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.treino, null);
-
-        TextView id = (TextView) layout.findViewById(R.id.treino_list_id);
-        id.setText(ConvertToTypes.convertIntToString(treino.get_id()));
+        View layout = inflater.inflate(R.layout.treino_specification, null);
 
         TextView nome = (TextView) layout.findViewById(R.id.txtNomeTreino);
         nome.setText(treino.getNome());
@@ -60,6 +63,17 @@ public class TreinoAdapter extends BaseAdapter {
         TextView tipo = (TextView) layout.findViewById(R.id.txtTreinoTipo);
         tipo.setText(treino.getTipo());
 
-        return layout;
+        TextView pontosTotal = (TextView) layout.findViewById(R.id.txtTreinosPontosTotal);
+        pontosTotal.setText(ConvertToTypes.convertDoubleToString(treino.getPontosTotal()));
+
+        TextView pontosMaximo = (TextView) layout.findViewById(R.id.txtTreinosPontosMaximo);
+        pontosMaximo.setText(ConvertToTypes.convertDoubleToString(treino.getPontosMaximo()));
+
+        ListView listView = (ListView) view.findViewById(R.id.treinoListCadastroExercicio);
+
+        listView.setAdapter(new ExercicioAdapter(context, (List <Exercicio>)treino.getListaExercicios()));
+
+
+        return null;
     }
 }

@@ -64,6 +64,14 @@
             android:name=".activity.agenda.AgendaList"
             android:label="@string/title_activity_agenda_list" >
         </activity>
+        <activity
+            android:name=".activity.treino.TreinoListSpecification"
+            android:label="@string/title_activity_treino_list_specification" >
+        </activity>
+        <activity
+            android:name=".activity.treino.TreinoSpecification"
+            android:label="@string/title_activity_treino_specification" >
+        </activity>
     </application>
 
 </manifest>

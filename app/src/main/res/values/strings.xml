@@ -33,6 +33,9 @@
     <string name="exercicio_cadastrados">Exercício cadastrado:</string>
     <string name="btn_add_treino">Adicionar</string>
     <string name="btn_add_Treino">Salvar</string>
+    <string name="treinos_cadastrados">Treinos Cadastrados</string>
+    <string name="title_activity_treino_list_specification">TreinoListSpecification</string>
+    <string name="title_activity_treino_specification">TreinoSpecification</string>
 
 
 </resources>

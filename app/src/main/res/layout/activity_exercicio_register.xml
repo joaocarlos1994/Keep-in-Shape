@@ -10,7 +10,8 @@
     <TextView android:text="@string/registro_treino" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtRegistroExercicio"
-        android:textSize="@dimen/registro_treino" />
+        android:textSize="@dimen/registro_treino"
+        android:textColor="#010101" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:id="@+id/textView2"
         android:layout_below="@+id/txtRegistroExercicio"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#010101" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,7 +41,8 @@
         android:id="@+id/textView3"
         android:layout_below="@+id/txtNomeExercicio"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#010101" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -60,7 +63,8 @@
         android:id="@+id/textView4"
         android:layout_below="@+id/txtTempoExercicio"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#010101" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,7 +85,8 @@
         android:id="@+id/textView5"
         android:layout_below="@+id/txtExercicioPeso"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#010101" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -102,7 +107,8 @@
         android:id="@+id/textView6"
         android:layout_below="@+id/txtExercicioQuantidade"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#010101" />
 
     <EditText
         android:layout_width="wrap_content"

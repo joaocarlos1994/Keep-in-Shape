@@ -1,45 +1,35 @@
-package br.com.keepinshape;
+package br.com.keepinshape.activity.treino;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ListView;
 
-import br.com.keepinshape.activity.exercicio.ExercicioList;
-import br.com.keepinshape.activity.exercicio.ExercicioRegister;
-import br.com.keepinshape.activity.treino.TreinoList;
-import br.com.keepinshape.activity.treino.TreinoRegister;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.keepinshape.R;
 import br.com.keepinshape.api.entity.Treino;
-import br.com.keepinshape.core.helper.DatabaseHelperFactory;
+import br.com.keepinshape.core.helper.TreinoFactory;
+import br.com.keepinshape.core.impl.TreinoDaoImpl;
 
-
-public class MainActivity extends ActionBarActivity {
+public class TreinoSpecification extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
+        setContentView(R.layout.activity_treino_specification);
 
     }
-
-    public void startAcitivity(View view){
-
-        String a;
-        startActivity(new Intent(this, TreinoList.class));
-    }
-
-    //IMC, relação cintura quadril, dobras cuntania
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_treino_specification, menu);
         return true;
     }
 
