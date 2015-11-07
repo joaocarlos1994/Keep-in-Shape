@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,10 +19,31 @@ import br.com.keepinshape.core.impl.TreinoDaoImpl;
 
 public class TreinoSpecification extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treino_specification);
+
+        Bundle idTreino = getIntent().getExtras();
+        int id = (int) idTreino.get("idTreino");
+
+        List<Treino> treinos = null;
+
+        try {
+
+            TreinoDaoImpl treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(this);
+            Treino treino = treinoDaoImpl.queryForId(id);
+            treinos = new ArrayList<Treino>();
+            treinos.add(treino);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ListView listView = (ListView) findViewById(R.id.listView_treino_specification);
+        listView.setAdapter(new TreinoAdapterSpecification(this, treinos, listView));
+
 
     }
 

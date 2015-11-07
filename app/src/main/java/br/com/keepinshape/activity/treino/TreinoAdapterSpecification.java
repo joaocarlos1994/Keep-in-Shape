@@ -34,7 +34,7 @@ public class TreinoAdapterSpecification extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return treinos.size();
     }
 
     @Override
@@ -74,6 +74,6 @@ public class TreinoAdapterSpecification extends BaseAdapter {
         listView.setAdapter(new ExercicioAdapter(context, (List <Exercicio>)treino.getListaExercicios()));
 
 
-        return null;
+        return layout;
     }
 }

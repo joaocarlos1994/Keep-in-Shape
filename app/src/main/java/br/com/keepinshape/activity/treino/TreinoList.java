@@ -47,22 +47,12 @@ public class TreinoList extends ActionBarActivity implements AdapterView.OnItemC
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        List<Treino> treinos = null;
         TextView id1 = (TextView) view.findViewById(R.id.treino_list_id);
+        int idTreino = Integer.parseInt(id1.getText().toString());
 
-        try {
-
-            TreinoDaoImpl treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(this);
-            Treino treino = treinoDaoImpl.queryForId(Integer.parseInt(id1.getText().toString()));
-            treinos = new ArrayList<Treino>();
-            treinos.add(treino);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        ListView listView = (ListView) findViewById(R.id.listView_treinos_cadastrados);
-        listView.setAdapter(new TreinoAdapterSpecification(this, treinos, view));
+        Intent intent = new Intent(this, TreinoSpecification.class);
+        intent.putExtra("idTreino", idTreino);
+        startActivity(intent);
 
 
     }
