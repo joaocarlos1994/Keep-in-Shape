@@ -42,7 +42,7 @@ public class TreinoSpecification extends AppCompatActivity {
         }
 
         ListView listView = (ListView) findViewById(R.id.listView_treino_specification);
-        listView.setAdapter(new TreinoAdapterSpecification(this, treinos, listView));
+        listView.setAdapter(new TreinoAdapterSpecification(this, treinos));
 
 
     }

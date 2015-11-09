@@ -136,6 +136,14 @@ public class TreinoRegister extends ActionBarActivity {
                 treinoDaoImpl = new TreinoDaoImpl(DatabaseHelperFactory.getIntanceConnection(TreinoRegister.this).getConnectionSource());
                 treinoDaoImpl.create(treino);
 
+                for(Exercicio exercicio : exerciciosSelecionados){
+                    exercicio.setTreino(treino);
+
+                    ExercicioDaoImpl exerciciosDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(this);
+                    exerciciosDaoImpl.create(exercicio);
+
+                }
+
                 startActivity(new Intent(this, TreinoList.class));
 
             } catch (SQLException e) {
