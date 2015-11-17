@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.DietaDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class DietaDaoImpl extends BaseDaoImpl <Dieta, Integer> implements DietaDAO {
+public class DietaDaoImpl extends BaseDaoImpl <Dieta, Integer> {
 
     public DietaDaoImpl (ConnectionSource cs) throws SQLException {
         super(Dieta.class);

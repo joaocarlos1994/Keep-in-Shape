@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.TreinoDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class TreinoDaoImpl extends BaseDaoImpl <Treino, Integer> implements TreinoDAO {
+public class TreinoDaoImpl extends BaseDaoImpl <Treino, Integer> {
 
     public TreinoDaoImpl(ConnectionSource cs) throws SQLException {
 

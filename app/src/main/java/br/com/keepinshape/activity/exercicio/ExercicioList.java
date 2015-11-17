@@ -15,6 +15,7 @@ import br.com.keepinshape.R;
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
+import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 
 public class ExercicioList extends Activity {
@@ -25,17 +26,17 @@ public class ExercicioList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicio_list);
 
-        List<Exercicio> exercicios = null;
 
-        try {
-            ExercicioDaoImpl exercicioDaoIml = ExercicioFactory.getInstanceExercicioDaoImpl(this);
-            exercicios = exercicioDaoIml.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        listaExercicios();
+
+
+    }
+
+
+    public void listaExercicios(){
 
         ListView listView = (ListView) findViewById(R.id.listViewExercicio);
-        listView.setAdapter(new ExercicioAdapter(this, exercicios));
+        listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().findAll(this)));
 
     }
 

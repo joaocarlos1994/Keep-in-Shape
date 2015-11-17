@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.PessoaDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class PessoaDaoImpl extends BaseDaoImpl<Pessoa, Integer> implements PessoaDAO {
+public class PessoaDaoImpl extends BaseDaoImpl<Pessoa, Integer> {
 
     PessoaDaoImpl (ConnectionSource cs) throws SQLException {
 

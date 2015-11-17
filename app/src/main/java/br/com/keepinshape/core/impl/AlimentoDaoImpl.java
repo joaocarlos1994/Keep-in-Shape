@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.AlimentoDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class AlimentoDaoImpl extends BaseDaoImpl <Alimento, Integer> implements AlimentoDAO {
+public class AlimentoDaoImpl extends BaseDaoImpl <Alimento, Integer> {
 
     public AlimentoDaoImpl (ConnectionSource cs) throws SQLException {
         super(Alimento.class);

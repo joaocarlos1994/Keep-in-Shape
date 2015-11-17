@@ -18,6 +18,7 @@ import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
 import br.com.keepinshape.core.helper.db.DatabaseHelper;
+import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 import br.com.keepinshape.core.service.Validator;
 
@@ -25,7 +26,6 @@ public class ExercicioRegister extends Activity {
 
     private EditText nome, tempo, peso, quantidade, pontuacao;
     private ExercicioFactory exercicioFactory;
-    private ExercicioDaoImpl exercicioDaoImpl;
     private RelativeLayout layout;
 
     @Override
@@ -55,17 +55,15 @@ public class ExercicioRegister extends Activity {
             Exercicio exercicio = exercicioFactory.exercicioFactory(nome.getText().toString(), Integer.parseInt(tempo.getText().toString()), Float.parseFloat(peso.getText().toString()),
                     Integer.parseInt(quantidade.getText().toString()), Double.parseDouble(pontuacao.getText().toString()));
 
-            try {
-                exercicioDaoImpl = new ExercicioDaoImpl(DatabaseHelperFactory.getIntanceConnection(ExercicioRegister.this).getConnectionSource());
-                exercicioDaoImpl.create(exercicio);
+
+            if(ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this)){
 
                 startActivity(new Intent(this, ExercicioList.class));
 
+            } else {
 
-            } catch (SQLException e) {
 
-                Log.d("Erro: , Tipo: ", "Falha ao adicionar Exercicio");
-                e.printStackTrace();
+                //Houve um erro
 
             }
 

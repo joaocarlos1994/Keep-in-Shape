@@ -30,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
     public void startAcitivity(View view){
 
         String a;
-        startActivity(new Intent(this, TreinoList.class));
+        startActivity(new Intent(this, TreinoRegister.class));
     }
 
     //IMC, relação cintura quadril, dobras cuntania

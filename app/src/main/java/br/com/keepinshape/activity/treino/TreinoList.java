@@ -17,7 +17,9 @@ import java.util.List;
 import br.com.keepinshape.R;
 import br.com.keepinshape.activity.exercicio.ExercicioAdapter;
 import br.com.keepinshape.api.entity.Treino;
+import br.com.keepinshape.core.facade.TreinoFacade;
 import br.com.keepinshape.core.helper.TreinoFactory;
+import br.com.keepinshape.core.helper.facade.TreinoFacadeFactory;
 import br.com.keepinshape.core.impl.TreinoDaoImpl;
 import br.com.keepinshape.core.service.ConvertToTypes;
 
@@ -28,17 +30,15 @@ public class TreinoList extends ActionBarActivity implements AdapterView.OnItemC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treino_list);
 
-        List<Treino> treinos = null;
+        listaTreinos();
 
-        try {
-            TreinoDaoImpl treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(this);
-            treinos = treinoDaoImpl.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    }
+
+
+    public void listaTreinos(){
 
         ListView listView = (ListView) findViewById(R.id.listView_treinos_cadastrados);
-        listView.setAdapter(new TreinoAdapter(this, treinos));
+        listView.setAdapter(new TreinoAdapter(this, TreinoFacadeFactory.getInstanceTreinoFacade().findAll(this)));
 
         listView.setOnItemClickListener(this);
 

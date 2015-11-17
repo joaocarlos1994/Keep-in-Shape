@@ -1,5 +1,7 @@
 package br.com.keepinshape.api.service;
 
+import android.content.Context;
+
 import java.util.List;
 
 import br.com.keepinshape.api.entity.Treino;
@@ -9,10 +11,10 @@ import br.com.keepinshape.api.entity.Treino;
  */
 public interface TreinoDAO {
 
-    //public Treino save(Treino treino);
-    //public Treino findById (int id);
+    public boolean save(Treino treino, Context context);
+    public Treino findById (int id, Context context);
     //public Treino update (Treino treino);
     //public boolean remove (Treino treino);
-    //public List<Treino> findAll();
+    public List<Treino> findAll(Context context);
 
 }

@@ -30,6 +30,8 @@ import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
 import br.com.keepinshape.core.helper.TreinoFactory;
+import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
+import br.com.keepinshape.core.helper.facade.TreinoFacadeFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 import br.com.keepinshape.core.impl.TreinoDaoImpl;
 import br.com.keepinshape.core.service.Validator;
@@ -66,18 +68,11 @@ public class TreinoRegister extends ActionBarActivity {
 
     public void loadAllExerciseSpinner (){
 
+        exercicioAdapter = new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().findAll(this));
+        sp = (Spinner) findViewById(R.id.spinnerExercicio);
+        sp.setAdapter(exercicioAdapter);
 
-        try {
 
-            ExercicioDaoImpl exerciciosDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(this);
-            exercicios = exerciciosDaoImpl.queryForAll();
-            exercicioAdapter = new ExercicioAdapter(this, exercicios);
-            sp = (Spinner) findViewById(R.id.spinnerExercicio);
-            sp.setAdapter(exercicioAdapter);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         ArrayAdapter<Exercicio> dataAdapter = new ArrayAdapter<Exercicio>(this,
                 android.R.layout.simple_spinner_item, exercicios);
@@ -132,24 +127,14 @@ public class TreinoRegister extends ActionBarActivity {
                                         Double.parseDouble(edtPtnMaximo.getText().toString()));
 
 
-            try {
-                treinoDaoImpl = new TreinoDaoImpl(DatabaseHelperFactory.getIntanceConnection(TreinoRegister.this).getConnectionSource());
-                treinoDaoImpl.create(treino);
-
-                for(Exercicio exercicio : exerciciosSelecionados){
-                    exercicio.setTreino(treino);
-
-                    ExercicioDaoImpl exerciciosDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(this);
-                    exerciciosDaoImpl.create(exercicio);
-
-                }
+            if(TreinoFacadeFactory.getInstanceTreinoFacade().save(treino, this)){
 
                 startActivity(new Intent(this, TreinoList.class));
 
-            } catch (SQLException e) {
+            } else {
 
                 Log.d("Erro: , Tipo: ", "Falha ao adicionar Treino");
-                e.printStackTrace();
+
             }
 
 

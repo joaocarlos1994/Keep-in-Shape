@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.ExercicioDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class ExercicioDaoImpl extends BaseDaoImpl <Exercicio, Integer> implements ExercicioDAO {
+public class ExercicioDaoImpl extends BaseDaoImpl <Exercicio, Integer> {
 
     public ExercicioDaoImpl (ConnectionSource cs) throws SQLException {
         super(Exercicio.class);

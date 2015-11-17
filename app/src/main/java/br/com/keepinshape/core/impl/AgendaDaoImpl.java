@@ -12,7 +12,7 @@ import br.com.keepinshape.api.service.AgendaDAO;
 /**
  * Created by Joao on 18/08/2015.
  */
-public class AgendaDaoImpl extends BaseDaoImpl<Agenda, Integer> implements AgendaDAO {
+public class AgendaDaoImpl extends BaseDaoImpl<Agenda, Integer> {
 
     public AgendaDaoImpl(ConnectionSource cs) throws SQLException {
         super(Agenda.class);

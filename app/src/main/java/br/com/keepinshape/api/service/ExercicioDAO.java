@@ -1,5 +1,7 @@
 package br.com.keepinshape.api.service;
 
+import android.content.Context;
+
 import java.util.List;
 
 import br.com.keepinshape.api.entity.Exercicio;
@@ -9,10 +11,10 @@ import br.com.keepinshape.api.entity.Exercicio;
  */
 public interface ExercicioDAO {
 
-    //public Exercicio save(Exercicio exercicio);
-    //public Exercicio findById (int id);
-    //public Exercicio update (Exercicio exercicio);
-    //public boolean remove (Exercicio exercicio);
-    //public List<Exercicio> findAll();
+    public boolean save(Exercicio exercicio, Context context);
+    public Exercicio findById (int id, Context context);
+    public Exercicio update (Exercicio exercicio);
+    public boolean remove (Exercicio exercicio);
+    public List<Exercicio> findAll(Context context);
 
 }

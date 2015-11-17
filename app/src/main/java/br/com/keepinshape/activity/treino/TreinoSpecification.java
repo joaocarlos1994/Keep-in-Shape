@@ -15,6 +15,7 @@ import java.util.List;
 import br.com.keepinshape.R;
 import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.TreinoFactory;
+import br.com.keepinshape.core.helper.facade.TreinoFacadeFactory;
 import br.com.keepinshape.core.impl.TreinoDaoImpl;
 
 public class TreinoSpecification extends AppCompatActivity {
@@ -30,16 +31,10 @@ public class TreinoSpecification extends AppCompatActivity {
 
         List<Treino> treinos = null;
 
-        try {
 
-            TreinoDaoImpl treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(this);
-            Treino treino = treinoDaoImpl.queryForId(id);
-            treinos = new ArrayList<Treino>();
-            treinos.add(treino);
+        treinos = new ArrayList<Treino>();
+        treinos.add(TreinoFacadeFactory.getInstanceTreinoFacade().findById(id, this));
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         ListView listView = (ListView) findViewById(R.id.listView_treino_specification);
         listView.setAdapter(new TreinoAdapterSpecification(this, treinos));
