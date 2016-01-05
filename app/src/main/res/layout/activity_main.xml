@@ -3,7 +3,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/btnActivityRegisterTreino">
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,12 +13,48 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="StartActivity Treino"
-        android:id="@+id/button"
+        android:text="Lista de Treino"
+        android:id="@+id/btnActivityListaTreino"
+        android:nestedScrollingEnabled="false"
+        android:layout_below="@+id/btnActivityRegisterExercicio"
+        android:layout_alignRight="@+id/btnActivityRegisterExercicio"
+        android:layout_alignEnd="@+id/btnActivityRegisterExercicio"
+        android:layout_alignLeft="@+id/btnActivityRegisterExercicio"
+        android:layout_alignStart="@+id/btnActivityRegisterExercicio"
+        android:onClick="handlerStartAcitivityTreinoList" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista de Exercício"
+        android:id="@+id/btnActivityListaExercicio"
+        android:layout_marginTop="68dp"
         android:layout_below="@+id/textView7"
+        android:layout_alignRight="@+id/btnActivityRegisterExercicio"
+        android:layout_alignEnd="@+id/btnActivityRegisterExercicio"
+        android:layout_alignLeft="@+id/btnActivityRegisterExercicio"
+        android:layout_alignStart="@+id/btnActivityRegisterExercicio"
+        android:onClick="handlerStartAcitivityExercicioList" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar Exercício"
+        android:id="@+id/btnActivityRegisterExercicio"
+        android:layout_below="@+id/btnActivityListaExercicio"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
-        android:onClick="startAcitivity"
-        android:nestedScrollingEnabled="false" />
+        android:onClick="handlerStartAcitivityExercicioRegister" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar Treino"
+        android:id="@+id/button3"
+        android:layout_below="@+id/btnActivityListaTreino"
+        android:layout_alignRight="@+id/btnActivityRegisterExercicio"
+        android:layout_alignEnd="@+id/btnActivityRegisterExercicio"
+        android:layout_alignLeft="@+id/btnActivityListaTreino"
+        android:layout_alignStart="@+id/btnActivityListaTreino"
+        android:onClick="handlerStartAcitivityTreinoRegister" />
 
 </RelativeLayout>

@@ -27,11 +27,23 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void startAcitivity(View view){
+    public void handlerStartAcitivityExercicioList (View view){
+        startActivity(new Intent(this, ExercicioList.class));
+    }
 
-        String a;
+    public void handlerStartAcitivityExercicioRegister (View view){
+        startActivity(new Intent(this, ExercicioRegister.class));
+    }
+
+    public void handlerStartAcitivityTreinoList (View view){
+        startActivity(new Intent(this, TreinoList.class));
+    }
+
+    public void handlerStartAcitivityTreinoRegister(View view){
         startActivity(new Intent(this, TreinoRegister.class));
     }
+
+
 
     //IMC, relação cintura quadril, dobras cuntania
 

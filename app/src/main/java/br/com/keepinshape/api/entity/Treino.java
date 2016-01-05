@@ -34,7 +34,7 @@ public class Treino {
     private String tipo;
     @DatabaseField
     private String diaSemana;
-    @ForeignCollectionField(eager = false)
+    @ForeignCollectionField
     private Collection<Exercicio> listaExercicios;
     @DatabaseField
     private double pontosTotal;

@@ -129,6 +129,12 @@ public class TreinoRegister extends ActionBarActivity {
 
             if(TreinoFacadeFactory.getInstanceTreinoFacade().save(treino, this)){
 
+
+                for (Exercicio exercicio : exerciciosSelecionados){
+                    exercicio.setTreino(treino);
+                    ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this);
+                }
+
                 startActivity(new Intent(this, TreinoList.class));
 
             } else {
