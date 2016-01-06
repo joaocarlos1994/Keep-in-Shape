@@ -1,10 +1,12 @@
 package br.com.keepinshape.api.entity;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by Joao on 17/08/2015.
@@ -42,6 +44,16 @@ public class Pessoa {
 
     @ForeignCollectionField
     private Collection<Agenda> listaAgenda;
+
+    @DatabaseField
+    private double cintura;
+
+    @DatabaseField
+    private double quadril;
+
+    @DatabaseField(dataType = DataType.DATE_LONG)
+    private Date dateRegister;
+
 
     public Pessoa(){}
 
@@ -99,5 +111,29 @@ public class Pessoa {
 
     public void setListaTreino(Collection<Treino> listaTreino) {
         this.listaTreino = listaTreino;
+    }
+
+    public double getCintura() {
+        return cintura;
+    }
+
+    public void setQuadril(double quadril) {
+        this.quadril = quadril;
+    }
+
+    public void setCintura(double cintura) {
+        this.cintura = cintura;
+    }
+
+    public double getQuadril() {
+        return quadril;
+    }
+
+    public Date getDateRegister() {
+        return dateRegister;
+    }
+
+    public void setDateRegister(Date dateRegister) {
+        this.dateRegister = dateRegister;
     }
 }

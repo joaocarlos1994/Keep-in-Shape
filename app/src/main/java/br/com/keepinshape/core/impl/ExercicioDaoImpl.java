@@ -20,32 +20,5 @@ public class ExercicioDaoImpl extends BaseDaoImpl <Exercicio, Integer> {
         initialize();
     }
 
-    /*
 
-    @Override
-    public Exercicio save(Exercicio exercicio) {
-        return null;
-    }
-
-    @Override
-    public Exercicio findById(int id) {
-        return null;
-    }
-
-    @Override
-    public Exercicio update(Exercicio exercicio) {
-        return null;
-    }
-
-    @Override
-    public boolean remove(Exercicio exercicio) {
-        return false;
-    }
-
-    @Override
-    public List<Exercicio> findAll() {
-        return null;
-    }
-
-    */
 }

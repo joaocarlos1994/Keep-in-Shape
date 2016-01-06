@@ -8,22 +8,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.sql.SQLException;
+
 import br.com.keepinshape.activity.exercicio.ExercicioList;
 import br.com.keepinshape.activity.exercicio.ExercicioRegister;
+import br.com.keepinshape.activity.pessoa.PessoaRegister;
 import br.com.keepinshape.activity.treino.TreinoList;
 import br.com.keepinshape.activity.treino.TreinoRegister;
+import br.com.keepinshape.api.entity.Pessoa;
 import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
+import br.com.keepinshape.core.helper.PessoaFactory;
+import br.com.keepinshape.core.helper.facade.PessoaFacadeFactory;
+import br.com.keepinshape.core.impl.PessoaDaoImpl;
 
 
 public class MainActivity extends ActionBarActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
+
+        if (PessoaFacadeFactory.getInstancePessoaFacade().findById(1, this) instanceof Pessoa){
+
+            setContentView(R.layout.activity_main);
+
+        } else {
+
+            startActivity(new Intent(this, PessoaRegister.class));
+        }
+
 
     }
 
