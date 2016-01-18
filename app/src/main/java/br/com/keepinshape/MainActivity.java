@@ -26,6 +26,10 @@ import br.com.keepinshape.core.impl.PessoaDaoImpl;
 public class MainActivity extends ActionBarActivity {
 
 
+    //Como criar gráficos Android http://www.android-graphview.org/download--getting-started.html
+    //https://www.youtube.com/watch?v=R1ApbajtVyg
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

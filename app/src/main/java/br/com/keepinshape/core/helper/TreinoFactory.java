@@ -25,7 +25,7 @@ public class TreinoFactory {
         return treinoDaoImpl;
     }
 
-    public Treino treinoFactory(String nome, String tipo, String diaSemana,
+    public static Treino treinoFactory(String nome, String tipo, String diaSemana,
                                 Collection<Exercicio> listaExercicios, double pontosTotal, double pontosMaximo){
 
         Treino treino = new Treino();

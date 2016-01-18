@@ -24,4 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile files('libs/ormlite-android-4.48.jar')
     compile files('libs/ormlite-core-4.48.jar')
+    androidTestCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
 }

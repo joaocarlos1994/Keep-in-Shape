@@ -23,7 +23,7 @@ public class ExercicioFactory {
         return exercicioDaoImpl;
     }
 
-    public Exercicio exercicioFactory(String nome, int tempo, float peso, int quantidade, double pontuacao){
+    public static Exercicio exercicioFactory(String nome, int tempo, float peso, int quantidade, double pontuacao){
 
         Exercicio exercicio = new Exercicio();
         exercicio.setNome(nome);
