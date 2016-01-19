@@ -13,8 +13,8 @@ public interface TreinoDAO {
 
     public boolean save(Treino treino, Context context);
     public Treino findById (int id, Context context);
-    //public Treino update (Treino treino);
-    //public boolean remove (Treino treino);
+    public Treino update (Treino treino, Context context);
+    public boolean remove (Treino treino, Context context);
     public List<Treino> findAll(Context context);
 
 }

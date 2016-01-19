@@ -72,10 +72,33 @@ public class TreinoDaoTest extends ConfigDBTestCase {
     @Test
     public void removeTreinoTest() {
 
+        config();
+        boolean savedTreino = TreinoFacadeFactory.getInstanceTreinoFacade().save(treino1, getContext());
+        Treino treinoToSave = TreinoFacadeFactory.getInstanceTreinoFacade().findById(1, getContext());
+        boolean treinoDelete = TreinoFacadeFactory.getInstanceTreinoFacade().remove(treinoToSave, getContext());
+
+        assertEquals(true, savedTreino);
+        assertTreino(treino1, treinoToSave);
+        assertEquals(true, treinoDelete);
+
     }
 
     @Test
-    public void updateTreinoTest() {}
+    public void updateTreinoTest() {
+
+        config();
+
+        boolean savedTreino = TreinoFacadeFactory.getInstanceTreinoFacade().save(treino1, getContext());
+
+        Treino treinoToSave = TreinoFacadeFactory.getInstanceTreinoFacade().findById(1, getContext());
+        treinoToSave.setNome("Treino A Update");
+
+        Treino treinoToUpdate = TreinoFacadeFactory.getInstanceTreinoFacade().update(treinoToSave, getContext());
+
+        assertEquals(true, savedTreino);
+        assertTreino(treinoToSave, treinoToUpdate);
+
+    }
 
 
     private static void assertTreino(Treino expected, Treino actual) {

@@ -8,6 +8,7 @@ import java.util.List;
 import br.com.keepinshape.api.entity.Pessoa;
 import br.com.keepinshape.api.service.PessoaDAO;
 import br.com.keepinshape.core.helper.PessoaFactory;
+import br.com.keepinshape.core.helper.facade.PessoaFacadeFactory;
 import br.com.keepinshape.core.impl.PessoaDaoImpl;
 
 /**
@@ -54,13 +55,32 @@ public class PessoaFacade implements PessoaDAO {
     }
 
     @Override
-    public Pessoa update(Pessoa pessoa) {
-        return null;
+    public Pessoa update(Pessoa pessoa, Context context) {
+
+        try {
+            pessoaDaoImpl = PessoaFactory.getInstancePessoaDaoImpl(context);
+            pessoaDaoImpl.update(pessoa);
+
+            return pessoa;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pessoa;
     }
 
     @Override
-    public boolean remove(Pessoa pessoa) {
-        return false;
+    public boolean remove(Pessoa pessoa, Context context) {
+
+        try {
+            pessoaDaoImpl = PessoaFactory.getInstancePessoaDaoImpl(context);
+            pessoaDaoImpl.delete(pessoa);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
+
     }
 
     @Override

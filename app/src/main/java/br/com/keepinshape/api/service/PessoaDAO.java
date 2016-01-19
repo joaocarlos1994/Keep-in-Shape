@@ -14,8 +14,8 @@ public interface PessoaDAO {
 
     boolean save(Pessoa treino, Context context);
     Pessoa findById (int id, Context context);
-    Pessoa update (Pessoa pessoa);
-    boolean remove (Pessoa pessoa);
+    Pessoa update (Pessoa pessoa, Context context);
+    boolean remove (Pessoa pessoa, Context context);
     List<Pessoa> findAll(Context context);
 
 }

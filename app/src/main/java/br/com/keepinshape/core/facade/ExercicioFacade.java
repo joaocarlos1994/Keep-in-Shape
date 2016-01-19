@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.api.service.ExercicioDAO;
@@ -43,17 +44,49 @@ public class ExercicioFacade implements ExercicioDAO{
 
     @Override
     public Exercicio findById(int id, Context context) {
+
+
+        try {
+            exercicioDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(context);
+            Exercicio exercicio = exercicioDaoImpl.queryForId(id);
+
+            return exercicio;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    @Override
+    public Exercicio update(Exercicio exercicio, Context context) {
+
+        try {
+            exercicioDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(context);
+            exercicioDaoImpl.update(exercicio);
+
+            return exercicio;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
     @Override
-    public Exercicio update(Exercicio exercicio) {
-        return null;
-    }
+    public boolean remove(Exercicio exercicio, Context context) {
 
-    @Override
-    public boolean remove(Exercicio exercicio) {
-        return false;
+        try {
+            exercicioDaoImpl = ExercicioFactory.getInstanceExercicioDaoImpl(context);
+            exercicioDaoImpl.delete(exercicio);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     @Override

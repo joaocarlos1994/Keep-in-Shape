@@ -25,6 +25,7 @@ public class ExercicioDaoTest extends ConfigDBTestCase {
     private List<Exercicio> listaExercicios;
 
 
+
     @Before
     public void config(){
 
@@ -45,11 +46,12 @@ public class ExercicioDaoTest extends ConfigDBTestCase {
 
         config();
 
-        boolean savedExercicio = ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio1, getContext());
-        Exercicio exercicioToSave = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(1, getContext());
+        boolean exercicioToSave = ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio1, getContext());
+        Exercicio savedExercicio = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(1, getContext());
 
-        Assert.assertEquals(true, savedExercicio);
-        assertExercicio(exercicio1, exercicioToSave);
+        assertEquals(true, exercicioToSave);
+        assertExercicio(exercicio1, savedExercicio);
+
 
     }
 
@@ -72,10 +74,35 @@ public class ExercicioDaoTest extends ConfigDBTestCase {
     @Test
     public void removeExercicioTest() {
 
+        config();
+        boolean savedExercicio = ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio1, getContext());
+        Exercicio exercicioToSave = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(1, getContext());
+        boolean treinoDelete = ExercicioFacadeFactory.getExercicioFacadeFactory().remove(exercicioToSave, getContext());
+
+        assertEquals(true, savedExercicio);
+        assertExercicio(exercicio1, exercicioToSave);
+        assertEquals(true, treinoDelete);
+
     }
 
     @Test
-    public void updateExercicioTest() {}
+    public void updateExercicioTest() {
+
+        config();
+
+        boolean savedExercicio = ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio1, getContext());
+
+        Exercicio exercicioToSave = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(1, getContext());
+        exercicioToSave.setNome("Supino A Update");
+
+        ExercicioFacadeFactory.getExercicioFacadeFactory().update(exercicioToSave, getContext());
+
+        Exercicio exercicioToUpdate = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(1, getContext());
+
+        assertEquals(true, savedExercicio);
+        assertExercicio(exercicioToSave, exercicioToUpdate);
+
+    }
 
 
     private static void assertExercicio(Exercicio expected, Exercicio actual) {

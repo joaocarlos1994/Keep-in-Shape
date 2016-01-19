@@ -44,7 +44,7 @@ public class TreinoFacade implements TreinoDAO {
 
         try {
 
-            TreinoDaoImpl treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(context);
+            treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(context);
             treino = treinoDaoImpl.queryForId(id);
 
 
@@ -54,6 +54,34 @@ public class TreinoFacade implements TreinoDAO {
         }
 
         return treino;
+    }
+
+    @Override
+    public Treino update(Treino treino, Context context) {
+
+        try {
+
+            treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(context);
+            treinoDaoImpl.update(treino);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return treino;
+    }
+
+    @Override
+    public boolean remove(Treino treino, Context context) {
+
+        try {
+            treinoDaoImpl = TreinoFactory.getInstanceTreinoDaoImpl(context);
+            treinoDaoImpl.delete(treino);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
+
     }
 
     @Override

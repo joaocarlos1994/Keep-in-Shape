@@ -31,7 +31,7 @@ public class PessoaDaoTest extends ConfigDBTestCase {
 
         pessoa1 = PessoaFactory.pessoaFactory("João", null, 75, 1.75, 22, null, 70, 100, new Date());
         pessoa2 = PessoaFactory.pessoaFactory("Vanderson", null, 70, 1.80, 20, null, 80, 110, new Date());
-        pessoa1 = PessoaFactory.pessoaFactory("Pedro", null, 80, 1.65, 18, null, 70, 90, new Date());
+        pessoa3 = PessoaFactory.pessoaFactory("Pedro", null, 80, 1.65, 18, null, 70, 90, new Date());
 
         listaPessoas = new ArrayList<Pessoa>();
         listaPessoas.add(pessoa1);
@@ -46,10 +46,10 @@ public class PessoaDaoTest extends ConfigDBTestCase {
         config();
 
         boolean savedPessoa = PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa1, getContext());
-        Pessoa treinoToSave = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, getContext());
+        Pessoa pessoaToSave = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, getContext());
 
         assertEquals(true, savedPessoa);
-        assertPessoa(pessoa1, treinoToSave);
+        assertPessoa(pessoa1, pessoaToSave);
 
 
     }
@@ -72,10 +72,34 @@ public class PessoaDaoTest extends ConfigDBTestCase {
     @Test
     public void removePessoaTest() {
 
+        config();
+        boolean savedPessoa = PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa1, getContext());
+        Pessoa pessoaToSave = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, getContext());
+        boolean pessoaDelete = PessoaFacadeFactory.getInstancePessoaFacade().remove(pessoaToSave, getContext());
+
+        assertEquals(true, savedPessoa);
+        assertPessoa(pessoa1, pessoaToSave);
+        assertEquals(true, pessoaDelete);
+
     }
 
     @Test
-    public void updatePessoaTest() {}
+    public void updatePessoaTest() {
+
+        config();
+
+        boolean savedPessoa = PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa1, getContext());
+
+        Pessoa pessoaToSave = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, getContext());
+        pessoaToSave.setNome("Joao Update");
+
+        Pessoa pessoaToUpdate = PessoaFacadeFactory.getInstancePessoaFacade().update(pessoaToSave, getContext());
+
+        assertEquals(true, savedPessoa);
+        assertPessoa(pessoaToSave, pessoaToUpdate);
+
+
+    }
 
 
     private static void assertPessoa(Pessoa expected, Pessoa actual) {

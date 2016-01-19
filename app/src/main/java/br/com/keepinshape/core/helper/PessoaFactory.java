@@ -31,6 +31,7 @@ public class PessoaFactory {
                                 Date dateRegister){
 
         Pessoa pessoa = new Pessoa();
+        pessoa.setNome(nome);
         pessoa.setListaTreino(listaExercicio);
         pessoa.setPeso(peso);
         pessoa.setAltura(altura);

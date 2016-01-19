@@ -13,8 +13,8 @@ public interface ExercicioDAO {
 
     public boolean save(Exercicio exercicio, Context context);
     public Exercicio findById (int id, Context context);
-    public Exercicio update (Exercicio exercicio);
-    public boolean remove (Exercicio exercicio);
+    public Exercicio update (Exercicio exercicio, Context context);
+    public boolean remove (Exercicio exercicio, Context context);
     public List<Exercicio> findAll(Context context);
 
 }
