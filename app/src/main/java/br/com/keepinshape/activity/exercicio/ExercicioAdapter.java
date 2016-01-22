@@ -43,11 +43,14 @@ public class ExercicioAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View view, ViewGroup parent) {
 
         Exercicio exercicio = exercicios.get(position);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.exercicio, null);
+
+        TextView id = (TextView) layout.findViewById(R.id.idExercicio);
+        id.setText(ConvertToTypes.convertIntToString(exercicio.get_id()));
 
         TextView nome = (TextView) layout.findViewById(R.id.textViewNome);
         nome.setText("Nome: " + exercicio.getNome());

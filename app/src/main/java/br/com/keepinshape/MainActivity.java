@@ -36,7 +36,9 @@ public class MainActivity extends ActionBarActivity {
 
         DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
 
-        if (PessoaFacadeFactory.getInstancePessoaFacade().findById(1, this) instanceof Pessoa){
+        Pessoa pessoa = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, this);
+
+        if (pessoa instanceof Pessoa){
 
             setContentView(R.layout.activity_main);
 

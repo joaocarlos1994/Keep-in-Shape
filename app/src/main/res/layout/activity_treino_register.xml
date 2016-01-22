@@ -171,4 +171,13 @@
         android:layout_centerHorizontal="true"
         android:onClick="handlerSalvarTreino" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/idTreino"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnAddTreino"
+        android:layout_toEndOf="@+id/btnAddTreino"
+        android:visibility="invisible" />
+
 </RelativeLayout>

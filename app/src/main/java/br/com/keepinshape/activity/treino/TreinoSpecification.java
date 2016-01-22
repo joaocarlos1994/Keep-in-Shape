@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -38,6 +39,31 @@ public class TreinoSpecification extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.listView_treino_specification);
         listView.setAdapter(new TreinoAdapterSpecification(this, treinos));
+
+
+    }
+
+    public void handlerEditTreino(View view){
+
+        Bundle idTreino = getIntent().getExtras();
+        int id = (int) idTreino.get("idTreino");
+
+        Intent intent = new Intent(this, TreinoRegister.class);
+        intent.putExtra("idTreino", id);
+
+        startActivity(intent);
+
+    }
+
+    public void handlerDeleteTreino(View view){
+
+        Bundle idTreino = getIntent().getExtras();
+        int id = (int) idTreino.get("idTreino");
+
+        Treino treino = TreinoFacadeFactory.getInstanceTreinoFacade().findById(id, this);
+        TreinoFacadeFactory.getInstanceTreinoFacade().remove(treino, this);
+
+        startActivity(new Intent(this, TreinoList.class));
 
 
     }

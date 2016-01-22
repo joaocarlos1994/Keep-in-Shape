@@ -1,11 +1,15 @@
 package br.com.keepinshape.activity.exercicio;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +22,7 @@ import br.com.keepinshape.core.helper.ExercicioFactory;
 import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
 
-public class ExercicioList extends Activity {
+public class ExercicioList extends Activity implements AdapterView.OnItemClickListener  {
 
 
     @Override
@@ -26,9 +30,7 @@ public class ExercicioList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicio_list);
 
-
         listaExercicios();
-
 
     }
 
@@ -37,6 +39,8 @@ public class ExercicioList extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.listViewExercicio);
         listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().findAll(this)));
+
+        listView.setOnItemClickListener(this);
 
     }
 
@@ -60,5 +64,17 @@ public class ExercicioList extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        TextView id1 = (TextView) view.findViewById(R.id.idExercicio);
+        int idExercicio = Integer.parseInt(id1.getText().toString());
+
+        Intent intent = new Intent(this, ExercicioSpecification.class);
+        intent.putExtra("idExercicio", idExercicio);
+        startActivity(intent);
+
     }
 }
