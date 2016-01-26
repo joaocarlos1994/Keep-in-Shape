@@ -3,7 +3,10 @@ package br.com.keepinshape.core.facade;
 import android.content.Context;
 import android.util.Log;
 
+import com.j256.ormlite.dao.GenericRawResults;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -103,5 +106,31 @@ public class ExercicioFacade implements ExercicioDAO{
 
         return  exercicios;
 
+    }
+
+    @Override
+    public List<Exercicio> customizedQueryExercicio(String query, Context context) {
+
+        List<Exercicio> results = new ArrayList<Exercicio>();
+
+        try {
+
+            ExercicioDaoImpl dao = ExercicioFactory.getInstanceExercicioDaoImpl(context);
+
+            GenericRawResults<Exercicio> rawResults = dao.queryRaw(query, dao.getRawRowMapper());
+
+            for(Exercicio exercicio : rawResults){
+
+                results.add(exercicio);
+
+            }
+
+            rawResults.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return results;
     }
 }

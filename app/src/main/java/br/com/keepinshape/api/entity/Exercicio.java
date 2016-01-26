@@ -10,13 +10,14 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName="Exercicio")
 public class Exercicio {
 
-    private static final String COLUMN_TABLE = "EXERCICIO";
-    private static final String COLUMN_ID = "ID";
-    private static final String COLUMN_NOME = "NOME";
-    private static final String COLUMN_TEMPO = "TEMPO";
-    private static final String COLUMN_PESO = "PESO";
-    private static final String COLUMN_QUANTIDADE = "QUANTIDADE";
-    private static final String COLUMN_PONTUACAO = "PONTUACAO";
+    public static final String COLUMN_TABLE = "EXERCICIO";
+    public static final String COLUMN_ID = "ID";
+    public static final String COLUMN_NOME = "NOME";
+    public static final String COLUMN_TEMPO = "TEMPO";
+    public static final String COLUMN_PESO = "PESO";
+    public static final String COLUMN_QUANTIDADE = "QUANTIDADE";
+    public static final String COLUMN_PONTUACAO = "PONTUACAO";
+    public static final String COLUMN_TREINO = "treino_id";
 
     @DatabaseField(generatedId = true)
     private Integer _id;

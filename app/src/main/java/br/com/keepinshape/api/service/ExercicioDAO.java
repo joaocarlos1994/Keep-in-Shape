@@ -16,5 +16,6 @@ public interface ExercicioDAO {
     public Exercicio update (Exercicio exercicio, Context context);
     public boolean remove (Exercicio exercicio, Context context);
     public List<Exercicio> findAll(Context context);
+    public List<Exercicio> customizedQueryExercicio(String query, Context context);
 
 }

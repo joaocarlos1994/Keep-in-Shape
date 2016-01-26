@@ -11,12 +11,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.GenericRawResults;
+import com.j256.ormlite.stmt.ColumnArg;
+import com.j256.ormlite.stmt.QueryBuilder;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import br.com.keepinshape.R;
 import br.com.keepinshape.api.entity.Exercicio;
+import br.com.keepinshape.core.facade.ExercicioFacade;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
 import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
@@ -38,8 +45,8 @@ public class ExercicioList extends Activity implements AdapterView.OnItemClickLi
     public void listaExercicios(){
 
         ListView listView = (ListView) findViewById(R.id.listViewExercicio);
-        listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().findAll(this)));
 
+        listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().customizedQueryExercicio("select * from exercicio", this)));
         listView.setOnItemClickListener(this);
 
     }

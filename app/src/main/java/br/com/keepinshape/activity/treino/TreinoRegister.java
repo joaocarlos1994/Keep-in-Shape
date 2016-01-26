@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.j256.ormlite.stmt.QueryBuilder;
+
 import junit.runner.Version;
 
 import java.sql.SQLException;
@@ -31,6 +33,7 @@ import br.com.keepinshape.R;
 import br.com.keepinshape.activity.exercicio.ExercicioAdapter;
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.api.entity.Treino;
+import br.com.keepinshape.core.facade.ExercicioFacade;
 import br.com.keepinshape.core.facade.TreinoFacade;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
 import br.com.keepinshape.core.helper.ExercicioFactory;
@@ -120,7 +123,18 @@ public class TreinoRegister extends ActionBarActivity {
 
     public void loadAllExerciseSpinner (){
 
-        exercicioAdapter = new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().findAll(this));
+        List<Exercicio> resultsExercicios = null;
+
+        try {
+            QueryBuilder<Exercicio, Integer> queryBuilder = ExercicioFactory.getInstanceExercicioDaoImpl(this).queryBuilder();
+            queryBuilder.where().eq(Exercicio.COLUMN_TREINO, null);
+            resultsExercicios = queryBuilder.query();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        exercicioAdapter = new ExercicioAdapter(this, resultsExercicios);
         sp = (Spinner) findViewById(R.id.spinnerExercicio);
         sp.setAdapter(exercicioAdapter);
 
