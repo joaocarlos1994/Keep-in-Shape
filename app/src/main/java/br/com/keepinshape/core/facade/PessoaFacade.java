@@ -2,7 +2,10 @@ package br.com.keepinshape.core.facade;
 
 import android.content.Context;
 
+import com.j256.ormlite.dao.GenericRawResults;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.keepinshape.api.entity.Pessoa;
@@ -99,6 +102,33 @@ public class PessoaFacade implements PessoaDAO {
         }
 
         return null;
+
+    }
+
+    @Override
+    public List<Pessoa> customizedQueryPessoa(String query, Context context) {
+
+        List<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+        try {
+
+            PessoaDaoImpl dao = PessoaFactory.getInstancePessoaDaoImpl(context);
+
+            GenericRawResults<Pessoa> rawResults = dao.queryRaw(query, dao.getRawRowMapper());
+
+            for(Pessoa pessoa : rawResults){
+
+                pessoas.add(pessoa);
+
+            }
+
+            rawResults.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return pessoas;
 
     }
 }

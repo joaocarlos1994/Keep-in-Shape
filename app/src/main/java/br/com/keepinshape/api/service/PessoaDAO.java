@@ -17,5 +17,6 @@ public interface PessoaDAO {
     Pessoa update (Pessoa pessoa, Context context);
     boolean remove (Pessoa pessoa, Context context);
     List<Pessoa> findAll(Context context);
+    public List<Pessoa> customizedQueryPessoa(String query, Context context);
 
 }

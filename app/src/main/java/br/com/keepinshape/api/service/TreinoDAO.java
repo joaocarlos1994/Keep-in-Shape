@@ -16,5 +16,6 @@ public interface TreinoDAO {
     public Treino update (Treino treino, Context context);
     public boolean remove (Treino treino, Context context);
     public List<Treino> findAll(Context context);
+    public List<Treino> customizedQueryTreino(String query, Context context);
 
 }

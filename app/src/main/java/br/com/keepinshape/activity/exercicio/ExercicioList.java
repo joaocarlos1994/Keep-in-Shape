@@ -46,7 +46,10 @@ public class ExercicioList extends Activity implements AdapterView.OnItemClickLi
 
         ListView listView = (ListView) findViewById(R.id.listViewExercicio);
 
-        listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().customizedQueryExercicio("select * from exercicio", this)));
+
+        String query = "select * from exercicio where " + Exercicio.COLUMN_TREINO + " = ''";
+
+        listView.setAdapter(new ExercicioAdapter(this, ExercicioFacadeFactory.getExercicioFacadeFactory().customizedQueryExercicio(query, this)));
         listView.setOnItemClickListener(this);
 
     }

@@ -111,7 +111,7 @@ public class ExercicioFacade implements ExercicioDAO{
     @Override
     public List<Exercicio> customizedQueryExercicio(String query, Context context) {
 
-        List<Exercicio> results = new ArrayList<Exercicio>();
+        List<Exercicio> exercicios = new ArrayList<Exercicio>();
 
         try {
 
@@ -121,7 +121,7 @@ public class ExercicioFacade implements ExercicioDAO{
 
             for(Exercicio exercicio : rawResults){
 
-                results.add(exercicio);
+                exercicios.add(exercicio);
 
             }
 
@@ -131,6 +131,6 @@ public class ExercicioFacade implements ExercicioDAO{
             e.printStackTrace();
         }
 
-        return results;
+        return exercicios;
     }
 }
