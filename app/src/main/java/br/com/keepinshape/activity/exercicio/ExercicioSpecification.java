@@ -49,4 +49,15 @@ public class ExercicioSpecification extends Activity {
 
     }
 
+    public void handlerEditExercicio(View view){
+
+        Bundle idExercicio = getIntent().getExtras();
+        int id = (int) idExercicio.get("idExercicio");
+
+        Intent intent = new Intent(this, ExercicioRegister.class);
+        intent.putExtra("idExercicio", id);
+        startActivity(intent);
+
+    }
+
 }

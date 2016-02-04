@@ -204,16 +204,15 @@ public class TreinoRegister extends ActionBarActivity {
             } else {
 
                 treino.set_id(Integer.parseInt(treinoId.getText().toString()));
-
                 TreinoFacadeFactory.getInstanceTreinoFacade().update(treino, this);
 
-             for (Exercicio exercicio : exerciciosSelecionados){
 
-                 Treino treinoList = TreinoFacadeFactory.getInstanceTreinoFacade().findById(Integer.parseInt(treinoId.getText().toString()), this);
+             for (int i = 0; i < exerciciosSelecionados.size(); i++){
 
-                 if(treinoList.getListaExercicios().contains(exercicio)){
-                     exercicio.setTreino(treino);
-                     ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this);
+                 if(exerciciosSelecionados.get(i).getTreino() == null){
+
+                     exerciciosSelecionados.get(i).setTreino(treino);
+                     ExercicioFacadeFactory.getExercicioFacadeFactory().save(exerciciosSelecionados.get(i), this);
 
                  }
                 }

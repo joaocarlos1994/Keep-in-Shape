@@ -20,19 +20,58 @@ import br.com.keepinshape.core.helper.ExercicioFactory;
 import br.com.keepinshape.core.helper.db.DatabaseHelper;
 import br.com.keepinshape.core.helper.facade.ExercicioFacadeFactory;
 import br.com.keepinshape.core.impl.ExercicioDaoImpl;
+import br.com.keepinshape.core.service.ConvertToTypes;
 import br.com.keepinshape.core.service.Validator;
 
 public class ExercicioRegister extends Activity {
 
-    private EditText nome, tempo, peso, quantidade, pontuacao;
+    private EditText idExercicio, nome, tempo, peso, quantidade, pontuacao;
     private ExercicioFactory exercicioFactory;
     private RelativeLayout layout;
+    int vetor [] = {R.id.txtNomeExercicio, R.id.txtTempoExercicio, R.id.txtExercicioPeso, R.id.txtExercicioQuantidade,
+            R.id.txtExercicioPontuacao};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicio_register);
-        exercicioFactory = new ExercicioFactory();
+
+        Bundle idExercicio = getIntent().getExtras();
+        if(idExercicio != null){
+
+            int id = (int) idExercicio.get("idExercicio");
+            editExercicio(id); //Chamando método Edit
+
+        } else {
+
+            exercicioFactory = new ExercicioFactory();
+
+        }
+
+    }
+
+    private void editExercicio(int id) {
+
+        Exercicio exercicio = ExercicioFacadeFactory.getExercicioFacadeFactory().findById(id, this);
+
+        idExercicio = (EditText) findViewById(R.id.treinoIdUpdate);
+        idExercicio.setText(ConvertToTypes.convertIntToString(exercicio.get_id()));
+
+        nome = (EditText) findViewById(vetor[0]);
+        nome.setText(exercicio.getNome());
+
+        tempo = (EditText) findViewById(vetor[1]);
+        tempo.setText(ConvertToTypes.convertIntToString(exercicio.getTempo()));
+
+        peso = (EditText) findViewById(vetor[2]);
+        peso.setText(ConvertToTypes.convertDoubleToString(exercicio.getPeso()));
+
+        quantidade = (EditText) findViewById(vetor[3]);
+        quantidade.setText(ConvertToTypes.convertIntToString(exercicio.getQuantidade()));
+
+        pontuacao = (EditText) findViewById(vetor[4]);
+        pontuacao.setText(ConvertToTypes.convertDoubleToString(exercicio.getPontuacao()));
+
 
     }
 
@@ -40,8 +79,6 @@ public class ExercicioRegister extends Activity {
 
         layout = (RelativeLayout) findViewById(R.id.relative_layout_register_exercicio);
 
-        int vetor [] = {R.id.txtNomeExercicio, R.id.txtTempoExercicio, R.id.txtExercicioPeso, R.id.txtExercicioQuantidade,
-                        R.id.txtExercicioPontuacao};
 
         if (Validator.validador(layout, vetor) == true){
 
@@ -55,17 +92,24 @@ public class ExercicioRegister extends Activity {
             Exercicio exercicio = exercicioFactory.exercicioFactory(nome.getText().toString(), Integer.parseInt(tempo.getText().toString()), Float.parseFloat(peso.getText().toString()),
                     Integer.parseInt(quantidade.getText().toString()), Double.parseDouble(pontuacao.getText().toString()));
 
+            if(idExercicio == null || idExercicio.equals("")){
 
-            if(ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this)){
+                if(ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this)){
 
-                startActivity(new Intent(this, ExercicioList.class));
+                    startActivity(new Intent(this, ExercicioList.class));
+
+                } else {
+                    //Houve um erro
+                }
 
             } else {
 
-
-                //Houve um erro
+                exercicio.set_id(Integer.parseInt(idExercicio.getText().toString())); //Setando Id no objeto
+                ExercicioFacadeFactory.getExercicioFacadeFactory().update(exercicio, this);
+                startActivity(new Intent(this, ExercicioList.class));
 
             }
+
 
         }
 

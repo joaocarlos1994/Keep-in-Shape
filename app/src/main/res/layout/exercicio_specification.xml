@@ -104,21 +104,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
+        android:text="Editar"
+        android:id="@+id/txtEditExercicio"
         android:layout_below="@+id/textView32"
         android:layout_toRightOf="@+id/textView28"
         android:layout_toEndOf="@+id/textView28"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="39dp"
+        android:onClick="handlerEditExercicio" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deletar"
         android:id="@+id/button5"
-        android:layout_alignTop="@+id/button4"
-        android:layout_toRightOf="@+id/button4"
-        android:layout_toEndOf="@+id/button4"
+        android:layout_alignTop="@+id/txtEditExercicio"
+        android:layout_toRightOf="@+id/txtEditExercicio"
+        android:layout_toEndOf="@+id/txtEditExercicio"
         android:layout_marginLeft="53dp"
         android:layout_marginStart="53dp"
         android:onClick="handlerDeleteExercicio" />
