@@ -123,16 +123,9 @@ public class TreinoRegister extends ActionBarActivity {
 
     public void loadAllExerciseSpinner (){
 
-        List<Exercicio> resultsExercicios = null;
+        String query = "select * from exercicio e where e." + Exercicio.COLUMN_TREINO + " is null;";
 
-        try {
-            QueryBuilder<Exercicio, Integer> queryBuilder = ExercicioFactory.getInstanceExercicioDaoImpl(this).queryBuilder();
-            queryBuilder.where().eq(Exercicio.COLUMN_TREINO, null);
-            resultsExercicios = queryBuilder.query();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        List<Exercicio> resultsExercicios = ExercicioFacadeFactory.getExercicioFacadeFactory().customizedQueryExercicio(query, this);
 
         exercicioAdapter = new ExercicioAdapter(this, resultsExercicios);
         sp = (Spinner) findViewById(R.id.spinnerExercicio);
