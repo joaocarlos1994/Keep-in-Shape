@@ -12,7 +12,7 @@ import br.com.keepinshape.api.entity.Pessoa;
  */
 public interface PessoaDAO {
 
-    boolean save(Pessoa treino, Context context);
+    boolean save(Pessoa pessoa, Context context);
     Pessoa findById (int id, Context context);
     Pessoa update (Pessoa pessoa, Context context);
     boolean remove (Pessoa pessoa, Context context);

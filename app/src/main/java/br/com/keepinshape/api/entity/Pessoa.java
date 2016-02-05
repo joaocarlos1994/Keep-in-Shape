@@ -54,6 +54,9 @@ public class Pessoa {
     @DatabaseField(dataType = DataType.DATE_LONG)
     private Date dateRegister;
 
+    @ForeignCollectionField
+    private Collection<AvaliacaoFisica> avaliacaoFisicas;
+
 
     public Pessoa(){}
 
@@ -135,5 +138,13 @@ public class Pessoa {
 
     public void setDateRegister(Date dateRegister) {
         this.dateRegister = dateRegister;
+    }
+
+    public Collection<AvaliacaoFisica> getAvaliacaoFisicas() {
+        return avaliacaoFisicas;
+    }
+
+    public void setAvaliacaoFisicas(Collection<AvaliacaoFisica> avaliacaoFisicas) {
+        this.avaliacaoFisicas = avaliacaoFisicas;
     }
 }
