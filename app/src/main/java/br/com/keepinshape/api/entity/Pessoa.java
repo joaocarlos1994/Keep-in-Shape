@@ -54,8 +54,8 @@ public class Pessoa {
     @DatabaseField(dataType = DataType.DATE_LONG)
     private Date dateRegister;
 
-    @ForeignCollectionField
-    private Collection<AvaliacaoFisica> avaliacaoFisicas;
+    @DatabaseField(foreign = true)
+    private AvaliacaoFisica avaliacaoFisica;
 
 
     public Pessoa(){}
@@ -140,11 +140,12 @@ public class Pessoa {
         this.dateRegister = dateRegister;
     }
 
-    public Collection<AvaliacaoFisica> getAvaliacaoFisicas() {
-        return avaliacaoFisicas;
+
+    public AvaliacaoFisica getAvaliacaoFisica() {
+        return avaliacaoFisica;
     }
 
-    public void setAvaliacaoFisicas(Collection<AvaliacaoFisica> avaliacaoFisicas) {
-        this.avaliacaoFisicas = avaliacaoFisicas;
+    public void setAvaliacaoFisica(AvaliacaoFisica avaliacaoFisica) {
+        this.avaliacaoFisica = avaliacaoFisica;
     }
 }

@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import br.com.keepinshape.api.entity.Agenda;
+import br.com.keepinshape.api.entity.AvaliacaoFisica;
 import br.com.keepinshape.api.entity.Pessoa;
 import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.impl.PessoaDaoImpl;
@@ -26,13 +27,13 @@ public class PessoaFactory {
         return pessoaDaoImpl;
     }
 
-    public static Pessoa pessoaFactory(String nome, Collection<Treino> listaExercicio, double peso,
+    public static Pessoa pessoaFactory(String nome, Collection<Treino> listaTreino, double peso,
                                 double altura, int idade, Collection<Agenda> listaAgenda, double cintura, double quadril,
-                                Date dateRegister){
+                                Date dateRegister, AvaliacaoFisica avaliacaoFisica){
 
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(nome);
-        pessoa.setListaTreino(listaExercicio);
+        pessoa.setListaTreino(listaTreino);
         pessoa.setPeso(peso);
         pessoa.setAltura(altura);
         pessoa.setIdade(idade);
@@ -40,6 +41,7 @@ public class PessoaFactory {
         pessoa.setCintura(cintura);
         pessoa.setQuadril(quadril);
         pessoa.setDateRegister(dateRegister);
+        pessoa.setAvaliacaoFisica(avaliacaoFisica);
 
         return pessoa;
 

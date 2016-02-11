@@ -29,9 +29,9 @@ public class PessoaDaoTest extends ConfigDBTestCase {
     @Before
     public void config(){
 
-        pessoa1 = PessoaFactory.pessoaFactory("João", null, 75, 1.75, 22, null, 70, 100, new Date());
-        pessoa2 = PessoaFactory.pessoaFactory("Vanderson", null, 70, 1.80, 20, null, 80, 110, new Date());
-        pessoa3 = PessoaFactory.pessoaFactory("Pedro", null, 80, 1.65, 18, null, 70, 90, new Date());
+        pessoa1 = PessoaFactory.pessoaFactory("João", null, 75, 1.75, 22, null, 70, 100, new Date(), null);
+        pessoa2 = PessoaFactory.pessoaFactory("Vanderson", null, 70, 1.80, 20, null, 80, 110, new Date(), null);
+        pessoa3 = PessoaFactory.pessoaFactory("Pedro", null, 80, 1.65, 18, null, 70, 90, new Date(), null);
 
         listaPessoas = new ArrayList<Pessoa>();
         listaPessoas.add(pessoa1);

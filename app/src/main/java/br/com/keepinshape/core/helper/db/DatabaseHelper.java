@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 import br.com.keepinshape.api.entity.Agenda;
 import br.com.keepinshape.api.entity.Alimento;
+import br.com.keepinshape.api.entity.AvaliacaoFisica;
 import br.com.keepinshape.api.entity.Dieta;
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.api.entity.Pessoa;
@@ -24,7 +25,7 @@ import br.com.keepinshape.api.entity.Treino;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String BD_NAME = "KEEP_IN_SHAPE";
-    private static final int BD_VERSION = 2;
+    private static final int BD_VERSION = 3;
 
     public DatabaseHelper(Context ctx){
         super(ctx, DatabaseHelper.BD_NAME, null, DatabaseHelper.BD_VERSION); //Atencao: Construtor apenas adicionado para parar de dar erro.
@@ -42,6 +43,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(cs, Exercicio.class);
             TableUtils.createTable(cs, Pessoa.class);
             TableUtils.createTable(cs, Treino.class);
+            TableUtils.createTable(cs, AvaliacaoFisica.class);
 
         } catch (SQLException ex){
 
@@ -61,6 +63,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(cs, Exercicio.class, true); //ultimo parametro serve para ignorar os erros.
             TableUtils.dropTable(cs, Pessoa.class, true); //ultimo parametro serve para ignorar os erros.
             TableUtils.dropTable(cs, Treino.class, true); //ultimo parametro serve para ignorar os erros.
+            TableUtils.dropTable(cs, AvaliacaoFisica.class, true);
 
             onCreate(sd, cs); //Criando as tabelas novamente.
 

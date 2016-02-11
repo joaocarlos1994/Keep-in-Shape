@@ -23,12 +23,10 @@ public class AvaliacaoFisicaFactory {
         return  avaliacaoFisicaDaoImpl;
     }
 
-    public static AvaliacaoFisica avaliacaoFisicaFactory(Integer id, Pessoa pessoa, double peso, double altura, int idade,
+    public static AvaliacaoFisica avaliacaoFisicaFactory(double peso, double altura, int idade,
                                                          double cintura, double quadril, Date dateAvaliacao){
 
         AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica();
-        avaliacaoFisica.set_id(id);
-        avaliacaoFisica.setPessoa(pessoa);
         avaliacaoFisica.setPeso(peso);
         avaliacaoFisica.setAltura(altura);
         avaliacaoFisica.setIdade(idade);

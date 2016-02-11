@@ -12,9 +12,12 @@ import android.widget.RelativeLayout;
 import java.util.Date;
 
 import br.com.keepinshape.R;
+import br.com.keepinshape.api.entity.AvaliacaoFisica;
 import br.com.keepinshape.api.entity.Pessoa;
 import br.com.keepinshape.core.facade.PessoaFacade;
+import br.com.keepinshape.core.helper.AvaliacaoFisicaFactory;
 import br.com.keepinshape.core.helper.PessoaFactory;
+import br.com.keepinshape.core.helper.facade.AvaliacaoFisicaFacadeFactory;
 import br.com.keepinshape.core.helper.facade.PessoaFacadeFactory;
 import br.com.keepinshape.core.service.ConvertToTypes;
 import br.com.keepinshape.core.service.Validator;
@@ -47,9 +50,15 @@ public class PessoaRegister extends ActionBarActivity {
             quadril = (EditText) findViewById(vetor[5]);
 
 
+
+            AvaliacaoFisica avaliacaoFisica = AvaliacaoFisicaFactory.avaliacaoFisicaFactory(Double.parseDouble(peso.getText().toString()), Double.parseDouble(altura.getText().toString()),
+                    Integer.parseInt(idade.getText().toString()), Double.parseDouble(cintura.getText().toString()), Double.parseDouble(quadril.getText().toString()), new Date());
+
+            AvaliacaoFisicaFacadeFactory.getInstanceAvaliacaoFisicaFacade().save(avaliacaoFisica, this);
+
             Pessoa pessoa = PessoaFactory.pessoaFactory(nome.getText().toString(), null, Double.parseDouble(peso.getText().toString()),
                     Double.parseDouble(altura.getText().toString()), Integer.parseInt(idade.getText().toString()), null, Double.parseDouble(cintura.getText().toString()),
-                    Double.parseDouble(quadril.getText().toString()),new Date());
+                    Double.parseDouble(quadril.getText().toString()), new Date(), avaliacaoFisica);
 
 
 

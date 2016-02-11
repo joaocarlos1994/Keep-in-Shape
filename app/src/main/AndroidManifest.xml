@@ -76,6 +76,10 @@
             android:name=".activity.exercicio.ExercicioSpecification"
             android:label="@string/title_activity_exercicio_specification" >
         </activity>
+        <activity
+            android:name=".activity.avaliacaoFisica.AvaliacaoFisica"
+            android:label="@string/title_activity_avaliacao_fisica" >
+        </activity>
     </application>
 
 </manifest>

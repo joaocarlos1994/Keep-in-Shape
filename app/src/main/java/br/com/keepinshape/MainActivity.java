@@ -10,6 +10,7 @@ import android.view.View;
 
 import java.sql.SQLException;
 
+import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisica;
 import br.com.keepinshape.activity.exercicio.ExercicioList;
 import br.com.keepinshape.activity.exercicio.ExercicioRegister;
 import br.com.keepinshape.activity.pessoa.PessoaRegister;
@@ -36,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
 
         DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
 
-        Pessoa pessoa = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, this);
+        Pessoa pessoa = PessoaFacadeFactory.getInstancePessoaFacade().findById(3, this);
 
         if (pessoa instanceof Pessoa){
 
@@ -64,6 +65,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void handlerStartAcitivityTreinoRegister(View view){
         startActivity(new Intent(this, TreinoRegister.class));
+    }
+
+    public void handlerStartAcitivityAvaliacaoFisica(View view){
+        startActivity(new Intent(this, AvaliacaoFisica.class));
     }
 
 
