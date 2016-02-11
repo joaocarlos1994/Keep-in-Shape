@@ -80,6 +80,10 @@
             android:name=".activity.avaliacaoFisica.AvaliacaoFisica"
             android:label="@string/title_activity_avaliacao_fisica" >
         </activity>
+        <activity
+            android:name=".activity.avaliacaoFisica.AvaliacaoFisicaRegister"
+            android:label="@string/title_activity_avaliacao_fisica_register" >
+        </activity>
     </application>
 
 </manifest>
