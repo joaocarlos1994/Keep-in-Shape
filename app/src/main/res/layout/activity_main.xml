@@ -69,4 +69,29 @@
         android:layout_alignStart="@+id/button3"
         android:onClick="handlerStartAcitivityAvaliacaoFisica" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar Avaliação"
+        android:id="@+id/button7"
+        android:layout_below="@+id/button4"
+        android:layout_alignRight="@+id/button4"
+        android:layout_alignEnd="@+id/button4"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignStart="@+id/button4"
+        android:onClick="handlerStartAcitivityRegisterAvaliacaoFisica" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista Avalicao"
+        android:id="@+id/button8"
+        android:layout_below="@+id/button7"
+        android:layout_alignLeft="@+id/button7"
+        android:layout_alignStart="@+id/button7"
+        android:layout_alignRight="@+id/button7"
+        android:layout_alignEnd="@+id/button7"
+        android:nestedScrollingEnabled="false"
+        android:onClick="handlerStartAcitivityListaAvaliacao" />
+
 </RelativeLayout>

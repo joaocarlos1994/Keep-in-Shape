@@ -10,7 +10,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import br.com.keepinshape.R;
 
-public class AvaliacaoFisica extends Activity {
+public class AvaliacaoFisicaGraph extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

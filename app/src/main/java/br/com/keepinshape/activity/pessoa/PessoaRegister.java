@@ -51,18 +51,19 @@ public class PessoaRegister extends ActionBarActivity {
 
 
 
-            AvaliacaoFisica avaliacaoFisica = AvaliacaoFisicaFactory.avaliacaoFisicaFactory(Double.parseDouble(peso.getText().toString()), Double.parseDouble(altura.getText().toString()),
+            AvaliacaoFisica avaliacaoFisica = AvaliacaoFisicaFactory.avaliacaoFisicaFactory(null, Double.parseDouble(peso.getText().toString()), Double.parseDouble(altura.getText().toString()),
                     Integer.parseInt(idade.getText().toString()), Double.parseDouble(cintura.getText().toString()), Double.parseDouble(quadril.getText().toString()), new Date());
 
-            AvaliacaoFisicaFacadeFactory.getInstanceAvaliacaoFisicaFacade().save(avaliacaoFisica, this);
 
             Pessoa pessoa = PessoaFactory.pessoaFactory(nome.getText().toString(), null, Double.parseDouble(peso.getText().toString()),
                     Double.parseDouble(altura.getText().toString()), Integer.parseInt(idade.getText().toString()), null, Double.parseDouble(cintura.getText().toString()),
                     Double.parseDouble(quadril.getText().toString()), new Date(), avaliacaoFisica);
 
+            avaliacaoFisica.setPessoa(pessoa); //Settando pessoa em Avaliação, relacionamento 1-1
 
+            AvaliacaoFisicaFacadeFactory.getInstanceAvaliacaoFisicaFacade().save(avaliacaoFisica, this); //Salvando Avaliação Fisica
 
-            PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa, this);
+            PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa, this); // Salvando Pessoa.
 
             startActivity(new Intent(this, PessoaRegister.class));
 

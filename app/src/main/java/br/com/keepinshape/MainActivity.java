@@ -8,20 +8,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.sql.SQLException;
-
-import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisica;
+import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisicaGraph;
+import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisicaList;
+import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisicaRegister;
 import br.com.keepinshape.activity.exercicio.ExercicioList;
 import br.com.keepinshape.activity.exercicio.ExercicioRegister;
 import br.com.keepinshape.activity.pessoa.PessoaRegister;
 import br.com.keepinshape.activity.treino.TreinoList;
 import br.com.keepinshape.activity.treino.TreinoRegister;
 import br.com.keepinshape.api.entity.Pessoa;
-import br.com.keepinshape.api.entity.Treino;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
-import br.com.keepinshape.core.helper.PessoaFactory;
 import br.com.keepinshape.core.helper.facade.PessoaFacadeFactory;
-import br.com.keepinshape.core.impl.PessoaDaoImpl;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -37,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
 
         DatabaseHelperFactory.getIntanceConnection(MainActivity.this); //Criando o banco ou carregando conexões
 
-        Pessoa pessoa = PessoaFacadeFactory.getInstancePessoaFacade().findById(3, this);
+        Pessoa pessoa = PessoaFacadeFactory.getInstancePessoaFacade().findById(1, this);
 
         if (pessoa instanceof Pessoa){
 
@@ -68,7 +65,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void handlerStartAcitivityAvaliacaoFisica(View view){
-        startActivity(new Intent(this, AvaliacaoFisica.class));
+        startActivity(new Intent(this, AvaliacaoFisicaGraph.class));
+    }
+
+    public void handlerStartAcitivityRegisterAvaliacaoFisica(View view){
+        startActivity(new Intent(this, AvaliacaoFisicaRegister.class));
+    }
+
+    public void handlerStartAcitivityListaAvaliacao(View view){
+        startActivity(new Intent(this, AvaliacaoFisicaList.class));
     }
 
 

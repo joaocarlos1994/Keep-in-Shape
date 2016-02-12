@@ -16,6 +16,9 @@ public class AvaliacaoFisica {
     @DatabaseField(generatedId = true)
     private Integer _id;
 
+    @DatabaseField(foreign = true)
+    private Pessoa pessoa;
+
     @DatabaseField
     private double peso;
 
@@ -42,6 +45,14 @@ public class AvaliacaoFisica {
 
     public void set_id(Integer _id) {
         this._id = _id;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
 
@@ -92,5 +103,6 @@ public class AvaliacaoFisica {
     public void setDateAvaliacao(Date dateAvaliacao) {
         this.dateAvaliacao = dateAvaliacao;
     }
+
 
 }

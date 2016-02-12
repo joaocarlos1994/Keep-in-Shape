@@ -39,6 +39,7 @@
     <string name="title_activity_exercicio_specification">ExercicioSpecification</string>
     <string name="title_activity_avaliacao_fisica">AvaliacaoFisica</string>
     <string name="title_activity_avaliacao_fisica_register">AvaliacaoFisicaRegister</string>
+    <string name="title_activity_avaliacao_fisica_list">AvaliacaoFisicaList</string>
 
 
 </resources>
