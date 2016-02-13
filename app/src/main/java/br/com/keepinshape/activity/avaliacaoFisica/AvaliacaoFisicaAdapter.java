@@ -19,12 +19,17 @@ import br.com.keepinshape.core.service.ConvertToTypes;
  */
 public class AvaliacaoFisicaAdapter extends BaseAdapter {
 
+
     private Context context;
     private List<AvaliacaoFisica> avaliacaoFisicas;
 
     public AvaliacaoFisicaAdapter(Context context, List<AvaliacaoFisica> avaliacaoFisicas){
         this.context = context;
         this.avaliacaoFisicas = avaliacaoFisicas;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     @Override
@@ -51,6 +56,9 @@ public class AvaliacaoFisicaAdapter extends BaseAdapter {
 
         TextView dataAvaliacao = (TextView) layout.findViewById(R.id.txtViewAvaliacaoFisicaLista);
         dataAvaliacao.setText(ConvertToTypes.convertDateToString(avaliacaoFisica.getDateAvaliacao()));
+
+        TextView id = (TextView) layout.findViewById(R.id.idAvaliacaoFisica);
+        id.setText(ConvertToTypes.convertIntToString(avaliacaoFisica.get_id()));
 
         return layout;
     }

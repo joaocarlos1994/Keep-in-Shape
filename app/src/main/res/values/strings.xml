@@ -40,6 +40,8 @@
     <string name="title_activity_avaliacao_fisica">AvaliacaoFisica</string>
     <string name="title_activity_avaliacao_fisica_register">AvaliacaoFisicaRegister</string>
     <string name="title_activity_avaliacao_fisica_list">AvaliacaoFisicaList</string>
+    <string name="title_activity_avaliacao_fisica_specification">AvaliacaoFisicaSpecification
+    </string>
 
 
 </resources>

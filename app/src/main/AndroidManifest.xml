@@ -88,6 +88,10 @@
             android:name=".activity.avaliacaoFisica.AvaliacaoFisicaList"
             android:label="@string/title_activity_avaliacao_fisica_list" >
         </activity>
+        <activity
+            android:name=".activity.avaliacaoFisica.AvaliacaoFisicaSpecification"
+            android:label="@string/title_activity_avaliacao_fisica_specification" >
+        </activity>
     </application>
 
 </manifest>

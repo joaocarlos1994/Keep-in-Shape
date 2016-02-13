@@ -1,10 +1,12 @@
 package br.com.keepinshape.activity.avaliacaoFisica;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,14 @@ public class AvaliacaoFisicaList extends Activity implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        TextView id1 = (TextView) view.findViewById(R.id.idAvaliacaoFisica);
+        int idAvalicaoFisica = Integer.parseInt(id1.getText().toString());
+
+        Intent intent = new Intent(this, AvaliacaoFisicaSpecification.class);
+        intent.putExtra("idAvaliacaoFisica", idAvalicaoFisica);
+        startActivity(intent);
+
 
     }
 }

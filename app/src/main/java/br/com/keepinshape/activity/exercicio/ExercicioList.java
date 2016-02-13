@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Objects;
 
 import br.com.keepinshape.R;
+import br.com.keepinshape.activity.avaliacaoFisica.AvaliacaoFisicaSpecification;
 import br.com.keepinshape.api.entity.Exercicio;
 import br.com.keepinshape.core.facade.ExercicioFacade;
 import br.com.keepinshape.core.helper.DatabaseHelperFactory;
