@@ -53,8 +53,6 @@ public class TreinoList extends ActionBarActivity implements AdapterView.OnItemC
         Intent intent = new Intent(this, TreinoSpecification.class);
         intent.putExtra("idTreino", idTreino);
         startActivity(intent);
-
-
     }
 
 

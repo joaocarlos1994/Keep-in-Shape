@@ -43,7 +43,5 @@ public class AvaliacaoFisicaList extends Activity implements AdapterView.OnItemC
         Intent intent = new Intent(this, AvaliacaoFisicaSpecification.class);
         intent.putExtra("idAvaliacaoFisica", idAvalicaoFisica);
         startActivity(intent);
-
-
     }
 }

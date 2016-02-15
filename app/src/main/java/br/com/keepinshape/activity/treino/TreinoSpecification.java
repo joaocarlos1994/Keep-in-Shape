@@ -52,7 +52,6 @@ public class TreinoSpecification extends AppCompatActivity {
         intent.putExtra("idTreino", id);
 
         startActivity(intent);
-
     }
 
     public void handlerDeleteTreino(View view){
@@ -64,8 +63,6 @@ public class TreinoSpecification extends AppCompatActivity {
         TreinoFacadeFactory.getInstanceTreinoFacade().remove(treino, this);
 
         startActivity(new Intent(this, TreinoList.class));
-
-
     }
 
 

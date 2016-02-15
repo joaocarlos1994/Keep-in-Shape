@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.j256.ormlite.stmt.QueryBuilder;
 
@@ -194,10 +195,12 @@ public class TreinoRegister extends ActionBarActivity {
                     }
 
                     startActivity(new Intent(this, TreinoList.class));
+                    finish();
 
                 } else {
 
                     Log.d("Erro: , Tipo: ", "Falha ao adicionar Treino");
+                    Toast.makeText(this, "Falha ao adicionar Treino", Toast.LENGTH_LONG);
 
                 }
 
@@ -217,6 +220,7 @@ public class TreinoRegister extends ActionBarActivity {
                  }
                 }
                 startActivity(new Intent(this, TreinoList.class));
+                finish();
             }
 
 

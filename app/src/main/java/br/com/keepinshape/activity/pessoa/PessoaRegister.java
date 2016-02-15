@@ -66,6 +66,7 @@ public class PessoaRegister extends ActionBarActivity {
             PessoaFacadeFactory.getInstancePessoaFacade().save(pessoa, this); // Salvando Pessoa.
 
             startActivity(new Intent(this, PessoaRegister.class));
+            finish();
 
 
         }

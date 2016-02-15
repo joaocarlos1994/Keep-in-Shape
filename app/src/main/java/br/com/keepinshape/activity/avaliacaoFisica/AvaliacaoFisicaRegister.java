@@ -56,6 +56,7 @@ public class AvaliacaoFisicaRegister extends Activity {
             if(AvaliacaoFisicaFacadeFactory.getInstanceAvaliacaoFisicaFacade().save(avaliacaoFisica, this) == true){
 
                 startActivity(new Intent(this, AvaliacaoFisicaList.class));
+                finish();
 
             } else {
                 Toast.makeText(this, "Erro ao salvar", Toast.LENGTH_LONG).show();

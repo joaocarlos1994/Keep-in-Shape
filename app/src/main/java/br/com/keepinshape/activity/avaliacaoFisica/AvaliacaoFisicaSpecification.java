@@ -31,9 +31,6 @@ public class AvaliacaoFisicaSpecification extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.listViewAvaliacaoFisicaSpecification);
         listView.setAdapter(new AvaliacaoFisicaAdapterSpecification(this, avaliacaoFisicas));
-
-
-
     }
 
     public void handlerDeleteAvaliacaoFisica(View view){
@@ -53,9 +50,7 @@ public class AvaliacaoFisicaSpecification extends Activity {
     }
 
     public void handlerStartActivityAvaliacaoFisicaGraph(View view){
-
         startActivity(new Intent(this, AvaliacaoFisicaGraph.class));
-
     }
 
 }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 
@@ -97,9 +98,12 @@ public class ExercicioRegister extends Activity {
                 if(ExercicioFacadeFactory.getExercicioFacadeFactory().save(exercicio, this)){
 
                     startActivity(new Intent(this, ExercicioList.class));
+                    finish();
 
                 } else {
-                    //Houve um erro
+
+                    Toast.makeText(this, "Erro ao salvar Exercício", Toast.LENGTH_LONG);
+
                 }
 
             } else {
@@ -107,6 +111,7 @@ public class ExercicioRegister extends Activity {
                 exercicio.set_id(Integer.parseInt(idExercicio.getText().toString())); //Setando Id no objeto
                 ExercicioFacadeFactory.getExercicioFacadeFactory().update(exercicio, this);
                 startActivity(new Intent(this, ExercicioList.class));
+                finish();
 
             }
 

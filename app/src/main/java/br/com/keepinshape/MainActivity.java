@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         } else {
 
             startActivity(new Intent(this, PessoaRegister.class));
+            finish();
         }
 
 
@@ -50,30 +51,37 @@ public class MainActivity extends ActionBarActivity {
 
     public void handlerStartAcitivityExercicioList (View view){
         startActivity(new Intent(this, ExercicioList.class));
+        finish();
     }
 
     public void handlerStartAcitivityExercicioRegister (View view){
         startActivity(new Intent(this, ExercicioRegister.class));
+        finish();
     }
 
     public void handlerStartAcitivityTreinoList (View view){
         startActivity(new Intent(this, TreinoList.class));
+        finish();
     }
 
     public void handlerStartAcitivityTreinoRegister(View view){
         startActivity(new Intent(this, TreinoRegister.class));
+        finish();
     }
 
     public void handlerStartAcitivityAvaliacaoFisica(View view){
         startActivity(new Intent(this, AvaliacaoFisicaGraph.class));
+        finish();
     }
 
     public void handlerStartAcitivityRegisterAvaliacaoFisica(View view){
         startActivity(new Intent(this, AvaliacaoFisicaRegister.class));
+        finish();
     }
 
     public void handlerStartAcitivityListaAvaliacao(View view){
         startActivity(new Intent(this, AvaliacaoFisicaList.class));
+        finish();
     }
 
 
