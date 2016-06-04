@@ -111,7 +111,7 @@ public class ExercicioRegister extends Activity {
                 exercicio.set_id(Integer.parseInt(idExercicio.getText().toString())); //Setando Id no objeto
                 ExercicioFacadeFactory.getExercicioFacadeFactory().update(exercicio, this);
                 startActivity(new Intent(this, ExercicioList.class));
-                finish();
+                //finish();
 
             }
 

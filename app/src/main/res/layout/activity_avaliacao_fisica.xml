@@ -14,21 +14,103 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Peso"
+            android:id="@+id/textView39"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_stacked_tab_max_width"
-            android:id="@+id/RelaLayoutAvalicaoFisicaPeso"></RelativeLayout>
+            android:id="@+id/RelaLayoutAvalicaoFisicaPeso">
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Altura"
+            android:id="@+id/textView40"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_stacked_tab_max_width"
             android:id="@+id/RelaLayoutAvalicaoFisicaAltura"></RelativeLayout>
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:stretchColumns="0,1,2,3">
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/peso_grafico"
+                    android:layout_gravity="left"
+                    android:text="Peso: "
+                    android:textColor="#040404" />
+                <TextView
+                    android:layout_gravity="left"
+                    android:id="@+id/altura_grafico"
+                    android:text="Altura: "
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_gravity="left"
+                    android:id="@+id/imc_grafico"
+                    android:text="IMC: "
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_gravity="left"
+                    android:id="@+id/situacao_grafico"
+                    android:text="Situação: "
+                    android:textColor="#000000" />
+
+            </TableRow>
+        </TableLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cintura"
+            android:id="@+id/textView41"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_stacked_tab_max_width"
             android:id="@+id/RelaLayoutAvalicaoFisicaCintura"></RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Quadril"
+            android:id="@+id/textView42"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
 
         <RelativeLayout
             android:layout_width="match_parent"

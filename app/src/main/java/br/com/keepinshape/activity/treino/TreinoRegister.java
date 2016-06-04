@@ -142,11 +142,25 @@ public class TreinoRegister extends ActionBarActivity {
 
     }
 
+    public double atualizarPontosMaximoExercicio(List<Exercicio> listExercicios){
+
+        double pontosExercicio = 0;
+
+        for (Exercicio exercicio:listExercicios) {
+            pontosExercicio += exercicio.getPontuacao();
+        }
+
+        return pontosExercicio;
+    }
+
     public void handlerTreinoAddExercicio(View view) {
 
         sp = (Spinner) findViewById(R.id.spinnerExercicio);
         Exercicio exercicio = (Exercicio) sp.getSelectedItem();
         exerciciosSelecionados.add(exercicio);
+
+        EditText pontosExercicios = (EditText) findViewById(R.id.editTextPontosMaximo);
+        pontosExercicios.setText(ConvertToTypes.convertDoubleToString(atualizarPontosMaximoExercicio(exerciciosSelecionados)));
 
 
         GridView gridView = (GridView) findViewById(R.id.gridViewExercicioCadastrados);
@@ -166,6 +180,7 @@ public class TreinoRegister extends ActionBarActivity {
         });
 
     }
+
 
     public void handlerSalvarTreino(View view) {
 
@@ -220,7 +235,7 @@ public class TreinoRegister extends ActionBarActivity {
                  }
                 }
                 startActivity(new Intent(this, TreinoList.class));
-                finish();
+                //finish();
             }
 
 
